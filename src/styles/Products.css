@@ -1,0 +1,11 @@
+.cardList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardContainer {
+    margin: 10px;
+}
+.stackContainer {
+    display: flex;
+    justify-content: center;
+}
