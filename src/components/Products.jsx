@@ -77,8 +77,11 @@ function Products() {
                                     ID: {product.id}
                                 </Card.Text>
                                 <Stack gap={2} direction="horizontal" className="stackContainer">
-                                    <Link to={`/update/${product.id}`}><Button variant="primary">Update</Button></Link> 
+                                    <Link to={`/update/${product.id}`}><Button variant="primary">Update</Button></Link>
                                     <Button variant="outline-danger" onClick={() => confirmDeleteProduct(product.id)}>Delete</Button>
+                                </Stack>
+                                <Stack>
+                                    <Link to={`/login`}><Button variant="success" className="mt-2">Buy</Button></Link> 
                                 </Stack>
                             </Card.Body>
                         </Card>

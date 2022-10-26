@@ -51,13 +51,9 @@ function CreateProducts() {
         <Form onSubmit={(e) => addProduct(e)}>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
-            <Form.Control type="text" name='title' value={product.title} placeholder="Enter title" onChange={(e) => handleChange(e)}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicDescription">
+                <Form.Control type="text" name='title' value={product.title} placeholder="Enter title" onChange={(e) => handleChange(e)}/>
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="text" name='description' value={product.description} placeholder="Enter description" onChange={(e) => handleChange(e)}/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicStock">
                 <Form.Label>Stock</Form.Label>
                 <Form.Control type="number" name='stock' value={product.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
             </Form.Group>
