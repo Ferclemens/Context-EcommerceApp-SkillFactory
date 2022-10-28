@@ -29,7 +29,7 @@ const Login = () => {
               })
             return userData
         })
-        console.log('result', result);
+        //console.log('result', result);
         const userRef = doc(db, `users/${result.user.uid}`)
         setDoc(userRef,{email, role})
         navigate('/')
