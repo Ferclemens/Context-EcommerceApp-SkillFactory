@@ -1,11 +1,31 @@
 .cardList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
-.cardContainer {
+.ItemListContainer {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.detailContainer {
     margin: 10px;
 }
-.stackContainer {
+.productImg {
+    width: 100px;
+    height: auto;
+}
+.buttonsContainer {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+.buttonBuy {
+    width: 64%;
+    margin-bottom: 10px;
 }

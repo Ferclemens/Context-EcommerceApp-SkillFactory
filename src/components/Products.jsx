@@ -66,25 +66,22 @@ function Products() {
             <div className='cardList'>
                 {products.map((product) => {
                     return (
-                        <Card key={product.id} className='cardContainer'>
-                            <Card.Header as="h5">{product.title}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>{product.description}</Card.Title>
-                                <Card.Text>
-                                    Stock: {product.stock}
-                                </Card.Text>
-                                <Card.Text>
-                                    ID: {product.id}
-                                </Card.Text>
-                                <Stack gap={2} direction="horizontal" className="stackContainer">
-                                    <Link to={`/update/${product.id}`}><Button variant="primary">Update</Button></Link>
-                                    <Button variant="outline-danger" onClick={() => confirmDeleteProduct(product.id)}>Delete</Button>
-                                </Stack>
-                                <Stack>
-                                    <Link to={`/login`}><Button variant="success" className="mt-2">Buy</Button></Link> 
-                                </Stack>
-                            </Card.Body>
-                        </Card>
+                        <div className='ItemListContainer' key={product.id}>
+                            <h3>{product.title}</h3>
+                            <div className='detailContainer'>
+                                <img className='productImg' src='https://cdn-icons-png.flaticon.com/512/3081/3081648.png'></img>
+                                <p>{product.description}</p>
+                                <p>Stock: {product.stock}</p>
+                                <p className='detailContainer'>ID: {product.id}</p>
+                            </div>
+                            <div>
+                                <div className='buttonsContainer'>
+                                    <Link className='buttonUpdate' to={`/update/${product.id}`}><Button variant="outline-primary">Update</Button></Link>
+                                    <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(product.id)}>Delete</Button>
+                                </div>
+                                <Link to={`/login`}><Button variant="success" className='buttonBuy'>Buy</Button></Link>
+                            </div>
+                        </div>
                     )
                 })}
             </div>
@@ -93,3 +90,23 @@ function Products() {
 }
 
 export default Products
+    {/* <Card key={product.id} className='cardContainer'>
+            <Card.Header as="h5">{product.title}</Card.Header>
+            <Card.Body>
+                <Card.Title>{product.description}</Card.Title>
+                <Card.Text>
+                    Stock: {product.stock}
+                </Card.Text>
+                <Card.Text>
+                    ID: {product.id}
+                </Card.Text>
+                <Stack gap={2} direction="horizontal" className="stackContainer">
+                    <Link to={`/update/${product.id}`}><Button variant="primary">Update</Button></Link>
+                    <Button variant="outline-danger" onClick={() => confirmDeleteProduct(product.id)}>Delete</Button>
+                </Stack>
+                <Stack>
+                    <Link to={`/login`}>
+                        <Button variant="success" className="mt-2">Buy</Button></Link> 
+                </Stack>
+            </Card.Body>
+        </Card> */}
