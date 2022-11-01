@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import {auth, app, db} from '../firebase/firebase'
 import Swal from 'sweetalert2'
 import { doc, setDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -78,11 +79,12 @@ const Login = () => {
                     }
                 </Button>
             </Form>
-            <Button variant="primary" onClick={() => setIsRegistered(!isRegistered)}>
+            <Link to={'/register'}><Button variant="primary" onClick={() => setIsRegistered(!isRegistered)}>
                     {isRegistered
                         ? 'Have account? log in' : 'Don\'t have account? Register'
                     }
             </Button>
+            </Link>
         </div>
     )
 }
