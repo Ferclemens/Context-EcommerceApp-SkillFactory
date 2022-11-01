@@ -22,21 +22,8 @@ export const Navbar = () => {
                         ? <Button variant="primary" onClick={logOut}>Log out</Button> 
                         : <Link to={'/login'}><Button variant="primary">Login</Button></Link>
                     }
-                <img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/>
+                 <Link to={'/cart'}><img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/></Link>
                 </div>
             </div>
         )
 }
-
-    {/* div className="navbarContainer">
-        <Link to={'/'}>Firebase E-commerce App</Link>
-        <Stack className="ButtonsContainer" direction="horizontal" gap={3}>
-            {user && <h2>Welcome! {user.email}</h2>}
-            {user && <Link to={'/create'}><Button variant="primary">Create</Button></Link>}
-            {user 
-                ? <Button variant="primary" onClick={() => signOutUser()}>Log out</Button> 
-                : <Link to={'/login'}><Button variant="primary">Login</Button></Link>
-            }
-        </Stack>
-        <img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/>
-    </div> */}
