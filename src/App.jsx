@@ -7,22 +7,25 @@ import UpdateProducts from './components/UpdateProducts'
 import Login from './components/Login'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
+import UserProvider from './components/UserProvider'
 
 function App() {
  
   return (
-    <div className='appContainer'>
-      <Navbar/>
-      <Routes>
-        <Route path='/' element={<Products/>} />
-        <Route path='/update/:id' element={<UpdateProducts/>} />
-        <Route path='/create' element={<CreateProducts/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Login/>} />
-        <Route path='/cart' element={<Cart/>} />
-      </Routes>
-      <Footer/>
-    </div>
+    <UserProvider>
+      <div className='appContainer'>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Products/>} />
+          <Route path='/update/:id' element={<UpdateProducts/>} />
+          <Route path='/create' element={<CreateProducts/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Login/>} />
+          <Route path='/cart' element={<Cart/>} />
+        </Routes>
+        <Footer/>
+      </div>
+    </UserProvider>
   )
 }
 

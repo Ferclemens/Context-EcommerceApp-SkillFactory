@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import '../styles/Products.css'
+import { useUserContext } from './UserProvider';
 
 
 function Products() {
+    const user = useUserContext()
     const [products, setProducts] = useState([])
     const productsCollection = collection(db,'products')
 
@@ -75,10 +77,12 @@ function Products() {
                                 <p className='detailContainer'>ID: {product.id}</p>
                             </div>
                             <div>
+                            { user && user.role === "admin" &&
                                 <div className='buttonsContainer'>
                                     <Link className='buttonUpdate' to={`/update/${product.id}`}><Button variant="outline-primary">Update</Button></Link>
                                     <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(product.id)}>Delete</Button>
                                 </div>
+                            }
                                 <Link to={`/login`}><Button variant="success" className='buttonBuy'>Buy</Button></Link>
                             </div>
                         </div>
