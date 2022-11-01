@@ -68,7 +68,7 @@ export const Navbar = () => {
                     ? <Button variant="primary" onClick={() => signOutUser()}>Log out</Button> 
                     : <Link to={'/login'}><Button variant="primary">Login</Button></Link>
                 }
-            <img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/>
+            <Link to={'/cart'}><img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/></Link>
             </div>
         </div>
         )
