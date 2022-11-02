@@ -29,3 +29,9 @@
     width: 64%;
     margin-bottom: 10px;
 }
+.itemCounterContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: baseline;
+}

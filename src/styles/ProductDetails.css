@@ -1,0 +1,24 @@
+.itemDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.itemCard {
+    display: flex;
+    width: 600px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.itemCounterContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: baseline;
+}
+.buttonBuy {
+    width: 120px;
+    margin-bottom: 10px;
+}

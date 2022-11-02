@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
 import UserProvider from './components/UserProvider'
+import ProductDetails from './components/ProductDetails'
 
 function App() {
  
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Products/>} />
           <Route path='/update/:id' element={<UpdateProducts/>} />
+          <Route path='/details/:id' element={<ProductDetails/>} />
           <Route path='/create' element={<CreateProducts/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Login/>} />

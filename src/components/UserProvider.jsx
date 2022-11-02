@@ -2,6 +2,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import React, { createContext, useContext, useState } from "react";
 import { app, auth, db } from '../firebase/firebase'
+import Swal from 'sweetalert2'
 
 const userContext = createContext()
 const userSingOutContext = createContext()
