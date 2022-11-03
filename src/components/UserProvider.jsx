@@ -60,7 +60,7 @@ const UserProvider = (props) => {
             timer: 2000
           })
     }
-    console.log('user login', user);
+    //console.log('user login', user);
 
     return (
         <userContext.Provider value={user}>

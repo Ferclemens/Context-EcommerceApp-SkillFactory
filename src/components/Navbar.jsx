@@ -8,7 +8,7 @@ export const Navbar = () => {
     const user = useUserContext()
     const logOut = useUserSingOutContext()
     
-    console.log('Navbar user', user);
+    //console.log('Navbar user', user);
     return (
             <div className="navbarContainer">
                 <div>

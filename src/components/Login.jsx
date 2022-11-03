@@ -13,7 +13,7 @@ const Login = () => {
     
     const navigate = useNavigate()
     const registerUser = async (email, password, role) => {
-        console.log('registerUser', email, password, role);
+        //console.log('registerUser', email, password, role);
         const result = await createUserWithEmailAndPassword(
             auth,
             email,
