@@ -9,6 +9,8 @@ import Footer from './components/Footer'
 import Cart from './components/Cart'
 import UserProvider from './components/UserProvider'
 import ProductDetails from './components/ProductDetails'
+import Register from './components/Register'
+import Reset from './components/Reset'
 
 function App() {
  
@@ -22,7 +24,8 @@ function App() {
           <Route path='/details/:id' element={<ProductDetails/>} />
           <Route path='/create' element={<CreateProducts/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/register' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+          <Route path='/reset' element={<Reset/>} />
           <Route path='/cart' element={<Cart/>} />
         </Routes>
         <Footer/>
