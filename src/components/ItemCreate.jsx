@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router';
 import { db } from '../firebase/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import Products from './Products';
 
-function CreateProducts() {
+
+function ItemCreate() {
     const [product, setProduct] = useState({
         title: '',
         description: '',
@@ -65,4 +64,4 @@ function CreateProducts() {
   )
 }
 
-export default CreateProducts
+export default ItemCreate

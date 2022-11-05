@@ -51,8 +51,6 @@ const Login = () => {
 
     e.target.reset();
   };
-  
-
 
   return (
     <>
@@ -111,7 +109,7 @@ const Login = () => {
               <option value="admin">Admin</option>
             </select>
           </label>  */}
-
+          
           <button className="login__user-btn">Login</button>
           <Link to="/reset" className="login__form-forgotPswd">
             <p>Forgot Password</p>

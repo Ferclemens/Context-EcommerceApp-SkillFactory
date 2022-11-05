@@ -7,7 +7,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2'
 import { async } from '@firebase/util';
 
-function updateProducts() {
+function ItemUpdate() {
     const [updateProduct, setUpdateProduct] = useState({
       title: '',
       description: '',
@@ -77,7 +77,7 @@ function updateProducts() {
     
   return (
     <div>
-        <div>UpdateProducts</div>
+        <div>Update Products</div>
         <Form onSubmit={(e) => editProduct(e)}>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
@@ -99,4 +99,4 @@ function updateProducts() {
   )
 }
 
-export default updateProducts
+export default ItemUpdate

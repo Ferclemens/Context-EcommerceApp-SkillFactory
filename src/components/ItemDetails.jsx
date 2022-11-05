@@ -1,16 +1,17 @@
 import { doc, getDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { useParams } from 'react-router'
+import { Navigate, useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { db } from '../firebase/firebase'
 import { useUserContext } from './UserProvider'
 import '../styles/ProductDetails.css'
+import { useCartContext } from './CartProvider'
+import ItemCount from './ItemCount'
 
 
-function ProductDetails() {
-    const [itemCount, setItemCount] = useState(0)
+function ItemDetails() {
     const [productDetail, setProductDetail] = useState({
         id: '',
         title: '',
@@ -18,20 +19,16 @@ function ProductDetails() {
         stock: 0
     })
     const { id } = useParams()
-    console.log('useparams', id);
+    //console.log('useparams', id);
+    console.log('Product details',productDetail);
     const user = useUserContext()
-
-    const addItem = () => {
-        setItemCount(itemCount+1)
-    }
-    const deleteItem = () => {
-        setItemCount(itemCount-1)
-    }
+    const { cart, addItemToCart } = useCartContext()
+    const navigate = useNavigate()
 
     const getProductById = async(id) => {
         const prodRef = doc(db, 'products',id)
         const productSnap = await getDoc(prodRef)
-        console.log(productSnap);
+        console.log('detalle de productSnap',productSnap.data());
         if (productSnap.exists()){
           setProductDetail({
             id: id,
@@ -47,7 +44,51 @@ function ProductDetails() {
           })
         }
     }
+    const addItem = (count) => {
+       addItemToCart({
+            id: productDetail.id, 
+            title: productDetail.title, 
+            stock: productDetail.stock}, 
+            count
+        )
+    }
 
+    const confirmDeleteProduct = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              deleteProduct(id)
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+    }
+    const deleteProduct = async (id) => {
+        const productToDelete = doc(db, 'products',id)
+        console.log('producto a borrar', productToDelete);
+        try{
+            await deleteDoc(productToDelete)
+            navigate('/')
+        } catch {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!'
+              })
+        }
+    }
+
+    
     useEffect(() => {
         getProductById(id)
       },[id])
@@ -70,17 +111,11 @@ function ProductDetails() {
                         <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(productDetail.id)}>Delete</Button>
                     </div>
                 }
-                    <Button variant="outline-primary" onClick={addItem}>+</Button>
-                    <p>{itemCount}</p>
-                    <Button variant="outline-primary" onClick={deleteItem}>-</Button>
-                {user 
-                    ? <Link to={`/cart`}><Button variant="success" className='buttonBuy'>Buy</Button></Link>
-                    : <Link to={`/login`}><Button variant="success" className='buttonBuy'>Buy</Button></Link>
-                }
+                    <ItemCount stock={productDetail.stock} initial={0} action={addItem}/>
                 </div>
             </div>
         </div>
     )
 }
 
-export default ProductDetails
+export default ItemDetails
