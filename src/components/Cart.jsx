@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Cart.css";
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
+import { useCartContext } from "./CartProvider";
 
 const allProducts = [
   {
@@ -292,9 +293,12 @@ const allProducts = [
   },
 ];
 
-const Cart = () => {
-  const [products, setProducts] = useState([]);
 
+const Cart = () => {
+  const productToAdd = useCartContext()
+  console.log('Producto desde componente Cart',productToAdd);
+  const [products, setProducts] = useState([]);
+  
   useEffect(() => {
     setProducts(allProducts);
   }, []);
