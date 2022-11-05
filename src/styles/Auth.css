@@ -1,0 +1,126 @@
+.login__container {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    padding: 1rem;
+    background: white;
+}
+
+.login__form-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgb(37, 37, 37);
+    margin-bottom: 5px;
+}
+
+.login__checkin {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.5);
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    height: 130px;
+    justify-content: space-evenly;
+    width: 80vw;
+    align-items: stretch;
+    align-content: center;
+}
+
+.login__user-btn {
+    background: blue;
+    color: white;
+}
+
+.login__register-text, .login__register-link, .login__form-forgotPswd, .login__form-password {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: rgb(37, 37, 37);
+    margin-bottom: 0;
+}
+
+.login__form-password {
+    margin-bottom: 0.2rem;
+}
+
+.login__register-link {
+    font-weight: 600;
+}
+
+.login__register-link:hover, .login__form-forgotPswd:hover {
+    color: blue;
+}
+
+.login__form-input-error {
+    font-size: 12px;
+    color: red;
+}
+
+.login__form-label-role {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.login__separtion-text{
+    margin: 10px 0;
+}
+
+.login__input-title {
+    font-weight: 600;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .login__container {
+        margin-top: 3rem;
+        max-height: max-content;
+    }
+
+    .login__checkin {
+        margin-left: 5px;
+        height: 400px;
+    }
+
+    .login__form {
+        max-width: 30vw;
+        height: 170px;
+    }
+
+    .login__input-title {
+        font-size: 0.8rem;
+    }
+
+    .login__register-text, .login__register-link, .login__form-forgotPswd, .login__form-password {
+        font-size: 0.6rem;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .login__container {
+        margin-top: 3rem;
+        max-height: max-content;
+    }
+
+    .login__form-title {
+        margin-bottom: 0;
+    }
+
+    .login__register-text, .login__register-link, .login__form-forgotPswd, .login__form-password {
+        font-size: 0.8rem;
+    }
+
+}

@@ -5,11 +5,14 @@ import Login from './components/Login'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
 import UserProvider from './components/UserProvider'
+import Register from './components/Register'
+import Reset from './components/Reset'
 import CartProvider from './components/CartProvider'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetails from './components/ItemDetails'
 import ItemUpdate from './components/ItemUpdate'
 import ItemCreate from './components/ItemCreate'
+
 
 function App() {
  
@@ -24,7 +27,8 @@ function App() {
             <Route path='/details/:id' element={<ItemDetails/>} />
             <Route path='/create' element={<ItemCreate/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/register' element={<Login/>} />
+            <Route path='/register' element={<Register/>} />
+            <Route path='/reset' element={<Reset/>} />
             <Route path='/cart' element={<Cart/>} />
           </Routes>
           <Footer/>
