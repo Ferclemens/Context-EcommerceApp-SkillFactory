@@ -68,8 +68,6 @@ function Item({id, stock, title}) {
         }
     }
 
-    
-  
     return (
         <div className='ItemListContainer'>
             <h3>{title}</h3>
