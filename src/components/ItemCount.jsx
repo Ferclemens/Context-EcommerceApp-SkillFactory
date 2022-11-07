@@ -2,18 +2,27 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useUserContext } from './UserProvider'
+import Swal from 'sweetalert2'
 
 function ItemCount({stock, action}) {
   const [count, setCount] = useState(0)
   const user = useUserContext()
   //console.log('stock desde componente items',stock);
   const addItem = () => {
-    //implementar logica de validacion
-    setCount(count+1)
+    count < stock ? setCount(count+1) : 
+    Swal.fire({
+      icon: 'error',
+      title: 'Sin Stock!',
+      text: 'No hay mas...',
+  })
   }
   const deleteItem = () => {
-    //implementar logica de validacion
-    setCount(count-1)
+    stock < 0 ? setCount(count-1) : 
+    Swal.fire({
+      icon: 'error',
+      title: 'no se puede descontar a 0 items',
+      text: 'jjj',
+  })
   }
 
   return (
