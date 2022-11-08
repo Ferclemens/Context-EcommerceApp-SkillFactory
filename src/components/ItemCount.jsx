@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useUserContext } from './UserProvider'
@@ -17,13 +17,17 @@ function ItemCount({stock, action}) {
   })
   }
   const deleteItem = () => {
-    stock < 0 ? setCount(count-1) : 
+    stock > 0 ? setCount(count-1) : 
     Swal.fire({
       icon: 'error',
       title: 'no se puede descontar a 0 items',
       text: 'jjj',
   })
   }
+
+  useEffect(()=>{
+    setCount(0)
+  },[])
 
   return (
     <div className='itemCounterContainer'>

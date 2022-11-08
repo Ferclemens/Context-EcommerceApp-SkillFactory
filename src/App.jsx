@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router'
 import './styles/App.css'
-import {Navbar} from './components/Navbar'
 import Login from './components/Login'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
@@ -12,6 +11,7 @@ import ItemListContainer from './components/ItemListContainer'
 import ItemDetails from './components/ItemDetails'
 import ItemUpdate from './components/ItemUpdate'
 import ItemCreate from './components/ItemCreate'
+import { Header } from './components/Header'
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     <UserProvider>
       <CartProvider>
         <div className='appContainer'>
-          <Navbar/>
+          <Header/>
           <Routes>
             <Route path='/' element={<ItemListContainer/>} />
             <Route path='/update/:id' element={<ItemUpdate/>} />

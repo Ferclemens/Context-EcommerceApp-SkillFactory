@@ -1,0 +1,36 @@
+.navbar__title, .navbar__admin, .navbar__contact, .navbar__user, .navbar__order, .navbar__login, .navbar__cart {
+    text-decoration: none;
+    padding-top: 11px;
+    padding-right: 20px;
+}
+
+.isActive {
+    color: red;
+    text-decoration: underline;
+}
+
+.noActive {
+    color: white;
+}
+
+.navbar__user {
+    text-decoration: none;
+    color: orange;
+}
+
+.navbar__user-hi {
+    color: white;
+    padding-right: 5px;
+}
+
+.navbar__user:hover {
+    color: orange;
+}
+
+.navbar__admin:hover, .navbar__contact:hover, .navbar__order:hover, .navbar__login:hover, .navbar__cart:hover {
+    color: red;
+}
+
+.navbar__title-span {
+    color: red;
+}
