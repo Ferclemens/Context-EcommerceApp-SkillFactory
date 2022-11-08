@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useUserContext } from './UserProvider'
@@ -22,6 +22,10 @@ function ItemCount({stock, action}) {
       title: 'no se puede descontar a 0 items',
     }) 
   }
+
+  useEffect(()=>{
+    setCount(0)
+  },[])
 
   return (
     <div className='itemCounterContainer'>
