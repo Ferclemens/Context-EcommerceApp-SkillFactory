@@ -61,11 +61,7 @@ function Item({id, stock, title}) {
     }
 
     const addItem = (count) => {
-        if(count != 0){
-            addItemToCart({id, title, stock}, count)
-        } else {
-            Swal.fire('Can\'t add 0 product')
-        }
+        addItemToCart({id, title, stock}, count)
     }
 
     return (
