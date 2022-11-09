@@ -14,6 +14,7 @@ import { REMOVE_ACTIVE_USER, selectUserName, SET_ACTIVE_USER } from "../redux/sl
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useCartContext } from "./CartProvider";
 
 const MySwal = withReactContent(Swal);
 
@@ -21,7 +22,7 @@ export const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const name = useSelector(selectUserName) 
-  
+    const {cart} = useCartContext()
     const [user, setUser] = useState(null)
 
     const getUserFirestore = async (uid)=>{
@@ -130,7 +131,7 @@ export const Header = () => {
                     <Link to='#' className='navbar__user'><Navbar><span className='navbar__user-hi'>Hi </span>{name}</Navbar></Link>
                     <NavLink to='/' className='navbar__login noActive' onClick={logoutUser} ><Navbar>Logout</Navbar></NavLink>
                     <NavLink to='/order-history' className={({isActive})=>(isActive ? 'navbar__order isActive':'navbar__order noActive')}><Navbar>My Orders</Navbar></NavLink>
-                    <NavLink to='/cart' className={({isActive})=>(isActive ? 'navbar__cart isActive':'navbar__cart noActive')}><Navbar><span className="material-symbols-outlined">shopping_cart</span>0</Navbar></NavLink>
+                    <NavLink to='/cart' className={({isActive})=>(isActive ? 'navbar__cart isActive':'navbar__cart noActive')}><Navbar><span className="material-symbols-outlined">shopping_cart</span>{cart.length}</Navbar></NavLink>
                   </ShowOnLogin>
                   <ShowOnLogout>
                     <NavLink to='/login' className={({isActive})=>(isActive ? 'navbar__login isActive':'navbar__login noActive')}><Navbar>Login</Navbar></NavLink>
