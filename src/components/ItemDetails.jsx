@@ -16,13 +16,15 @@ function ItemDetails() {
         id: '',
         title: '',
         description: '',
-        stock: 0
+        stock: 0,
+        price: '',
+        image: '',
     })
     const { id } = useParams()
     //console.log('useparams', id);
     console.log('Product details',productDetail);
     const user = useUserContext()
-    const { cart, addItemToCart } = useCartContext()
+    const { addItemToCart } = useCartContext()
     const navigate = useNavigate()
 
     const getProductById = async(id) => {
@@ -34,7 +36,9 @@ function ItemDetails() {
             id: id,
             title : productSnap.data().title,
             description :productSnap.data().description,
-            stock : productSnap.data().stock
+            stock : productSnap.data().stock,
+            price : productSnap.data().precio,
+            image : productSnap.data().imagen
           })
         } else {
           Swal.fire({
@@ -99,9 +103,10 @@ function ItemDetails() {
             <div className='itemCard' key={productDetail.id}>
                 <h3>{productDetail.title}</h3>
                 <div className='detailContainer'>
-                    <img className='productImg' src='https://cdn-icons-png.flaticon.com/512/3081/3081648.png'></img>
+                    <img className='productImg' src={productDetail.image}></img>
                     <p>{productDetail.description}</p>
                     <p>Stock: {productDetail.stock}</p>
+                    <p>Precio: {productDetail.price}</p>
                     <p className='detailContainer'>ID: {productDetail.id}</p>
                 </div>
                 <div className='itemCounterContainer'>

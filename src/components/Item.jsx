@@ -77,6 +77,7 @@ function Item({id, stock, title, price, image}) {
             <div className='detailContainer'>
                 <img className='productImg' src={image}></img>
                 <p>Stock: {stock}</p>
+                <p>Price: {price}</p>
             </div>
             <div>
             { user && user.role === "admin" &&
