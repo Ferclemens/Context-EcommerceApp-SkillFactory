@@ -52,9 +52,17 @@ function ItemDetails() {
        addItemToCart({
             id: productDetail.id, 
             title: productDetail.title, 
-            stock: productDetail.stock}, 
+            stock: productDetail.stock,
+            price : productDetail.price}, 
             count
         )
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Producto agregado correctamente!',
+          showConfirmButton: false,
+          timer: 1500
+        })
     }
 
     const confirmDeleteProduct = (id) => {

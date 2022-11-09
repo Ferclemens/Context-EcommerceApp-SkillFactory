@@ -55,7 +55,24 @@ const Checkout = () => {
       navigate("/");
     }
   };
-
+  const totalValueCart = () => {
+    let result = 0
+    cart.map((product) => {
+      result = result + (product.price * product.count);
+    });
+    return (
+      result
+    )
+  }
+  const totalUnits = () => {
+    let total = 0
+    cart.map((item) =>  {
+      total += item.count
+    })
+    return ( 
+      total
+    )
+  }
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -146,7 +163,10 @@ const Checkout = () => {
             <Col lg="4">
               <div className="checkout_cart">
                 <h6>
-                  Cantidad total: <span>cantItems productos</span>
+                  Cantidad de productos: <span>{cart.length}</span>
+                </h6>
+                <h6>
+                  Unidades totales: <span>{totalUnits()}</span>
                 </h6>
                 <h6>
                   Subtotal: <span>$total</span>
@@ -159,7 +179,7 @@ const Checkout = () => {
                 </h6>
 
                 <h4>
-                  Total de la compra: <span>$total</span>
+                  Total de la compra: <span>{totalValueCart()}</span>
                 </h4>
               </div>
             </Col>

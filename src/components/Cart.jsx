@@ -33,7 +33,7 @@ const Cart = () => {
   const totalPay = () => {
     let result = 0;
     cart.map((product) => {
-      result = result + (10 * product.count);
+      result = result + (product.price * product.count);
     });
     return configResult(result);
   };
@@ -104,8 +104,8 @@ const Cart = () => {
                 <Button variant="outline-primary" onClick={() => less()}>-</Button>
                 <Button variant="success" className='buttonBuy' onClick={() => {addItem(numberItems)}}>Add</Button>
               </div>
-              <p>precio: {10}</p>
-              <p>TOTAL: {configResult(item.count * 10)}</p>
+              <p>precio: {item.price}</p>
+              <p>TOTAL: {configResult(item.count * item.price)}</p>
               <Button variant="danger" onClick={() => deleteOneProduct(item.id)}>Delete product</Button>
             </div>
           </div>
