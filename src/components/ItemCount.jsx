@@ -33,7 +33,7 @@ function ItemCount({stock, action}) {
         <p>{count}</p>
       <Button variant="outline-primary" onClick={() => deleteItem()}>-</Button>
       {user 
-          ? <Button variant="success" className='buttonBuy' onClick={() => {action()}}>Add to cart</Button>
+          ? <Button variant="success" className='buttonBuy' onClick={() => {action(count)}}>Add to cart</Button>
           : <Link to={`/login`}><Button variant="success" className='buttonBuy'>Add to cart</Button></Link>
       }
     </div>
