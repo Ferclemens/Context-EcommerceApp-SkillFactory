@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
 import { useCartContext } from "./CartProvider";
 import '../styles/Item.css'
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -114,6 +115,11 @@ const Cart = () => {
         <Button variant="danger" onClick={deletAllList}>Delet All List</Button>
         TOTAL {totalPay()}
       </div>
+      <Button variant="info">
+        <Link to={"/checkout"}>
+          Go to pay
+        </Link>
+      </Button>
     </div>
   )
 };

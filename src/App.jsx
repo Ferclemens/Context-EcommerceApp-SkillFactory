@@ -12,6 +12,8 @@ import ItemDetails from './components/ItemDetails'
 import ItemUpdate from './components/ItemUpdate'
 import ItemCreate from './components/ItemCreate'
 import { Header } from './components/Header'
+import Checkout from "./components/Checkout";
+import ListPurchaseContainer from './components/ListPurchaseContainer'
 
 
 function App() {
@@ -30,6 +32,10 @@ function App() {
             <Route path='/register' element={<Register/>} />
             <Route path='/reset' element={<Reset/>} />
             <Route path='/cart' element={<Cart/>} />
+            <Route path='/checkout' element={<Checkout/>} />
+            <Route path='/order-history' element={<ListPurchaseContainer/>} />
+
+       
           </Routes>
           <Footer/>
         </div>
