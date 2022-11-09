@@ -14,7 +14,7 @@ import { useCartContext } from './CartProvider';
 import ItemCount from './ItemCount';
 
 
-function Item({id, stock, title}) {
+function Item({id, stock, title, price, image}) {
     const user = useUserContext()
     const { cart, addItemToCart } = useCartContext()
     const navigate = useNavigate()
@@ -75,7 +75,7 @@ function Item({id, stock, title}) {
         <div className='ItemListContainer'>
             <h3>{title}</h3>
             <div className='detailContainer'>
-                <img className='productImg' src='https://cdn-icons-png.flaticon.com/512/3081/3081648.png'></img>
+                <img className='productImg' src={image}></img>
                 <p>Stock: {stock}</p>
             </div>
             <div>

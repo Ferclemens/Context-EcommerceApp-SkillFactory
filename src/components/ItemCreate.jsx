@@ -11,7 +11,9 @@ function ItemCreate() {
     const [product, setProduct] = useState({
         title: '',
         description: '',
-        stock: 0
+        stock: 0,
+        price:0,
+        image:"",
     })
     const navigate = useNavigate()
     const productsCollection = collection(db,'products')
@@ -55,6 +57,10 @@ function ItemCreate() {
                 <Form.Control type="text" name='description' value={product.description} placeholder="Enter description" onChange={(e) => handleChange(e)}/>
                 <Form.Label>Stock</Form.Label>
                 <Form.Control type="number" name='stock' value={product.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
+                <Form.Label>Price</Form.Label>
+                <Form.Control type="number" name='stock' value={product.price} placeholder="Enter price" onChange={(e) => handleChange(e)}/>
+                <Form.Label>Image</Form.Label>
+                <Form.Control type="text" name='image' value={product.image} placeholder="Enter image link" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit

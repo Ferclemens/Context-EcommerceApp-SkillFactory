@@ -5,7 +5,7 @@ import ListPurchase from "./ListPurchase";
 
 const ListPurchaseContainer = () => {
   const [userPurchase, setuserPurchase] = useState([]);
-  const productsCollection = collection(db, "purchase");
+  const productsCollection = collection(db, "purchaseClientList");
 
   const getProducts = async () => {
     const dataProducts = await getDocs(productsCollection);

@@ -34,8 +34,6 @@ function App() {
             <Route path='/cart' element={<Cart/>} />
             <Route path='/checkout' element={<Checkout/>} />
             <Route path='/order-history' element={<ListPurchaseContainer/>} />
-
-       
           </Routes>
           <Footer/>
         </div>

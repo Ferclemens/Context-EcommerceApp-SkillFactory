@@ -5,10 +5,13 @@ import { collection, addDoc } from "firebase/firestore";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCartContext } from './CartProvider'
+
+
 
 const Checkout = () => {
   const MySwal = withReactContent(Swal);
-
+  const { cart } = useCartContext()
 
 
   const [user, setUser] = useState({
@@ -25,7 +28,7 @@ const Checkout = () => {
     date: "",
   });
 
-  const productCollection = collection(db, "purchase");
+  const productCollection = collection(db, "purchaseClientList");
   const navigate = useNavigate();
 
   const addPurchase = async (e) => {
@@ -58,8 +61,8 @@ const Checkout = () => {
       ...user,
       [e.target.name]: e.target.value.trim(),
       date: new Date(),
-      countItems: "",
-      price: total,
+      countItems: cart.length,
+      price: "",
     });
   };
   return (

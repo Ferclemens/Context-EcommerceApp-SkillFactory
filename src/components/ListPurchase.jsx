@@ -26,7 +26,7 @@ const ListPurchase = ({ userPurchase }) => {
                     <td>{product.email}</td>
                     <td>{product.phone}</td>
                     <td>{product.city}</td>
-                    <td>{product.date.getDate}</td>
+                    <td>aca va el date</td>
                     <td>{product.countItems}</td>
                     <td>${product.price}</td>
                   </tr>
