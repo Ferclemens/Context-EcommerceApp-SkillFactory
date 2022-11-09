@@ -1,14 +1,16 @@
 import { Button, Container, Row, Table } from "react-bootstrap";
+import "../styles/ProductsCount.css"
 
 const ListPurchase = ({ userPurchase }) => {
   console.log(userPurchase);
   return (
-    <Container fluid className="container-products-page">
+    <Container fluid >
       <Row>
-        <div className="product-list animate__animated animate__slideInDown">
+        
           {userPurchase.map((product, index) => {
             return (
-              <Table striped bordered hover key={index}>
+              <div className="table-history-products">
+              <Table striped bordered hover  key={index} >
                 <thead>
                   <tr>
                     <th>Nombre</th>
@@ -32,9 +34,10 @@ const ListPurchase = ({ userPurchase }) => {
                   </tr>
                 </tbody>
               </Table>
+              </div>
             );
           })}
-        </div>
+      
       </Row>
     </Container>
   );
