@@ -11,7 +11,9 @@ function ItemUpdate() {
     const [updateProduct, setUpdateProduct] = useState({
       title: '',
       description: '',
-      stock: 0
+      stock: 0,
+      image: '',
+      price: 0
   })
   const navigate = useNavigate()
   const { id } = useParams()
@@ -24,7 +26,9 @@ function ItemUpdate() {
       setUpdateProduct({
         title : productSnap.data().title,
         description :productSnap.data().description,
-        stock : productSnap.data().stock
+        stock : productSnap.data().stock,
+        image : productSnap.data().image,
+        price : productSnap.data().price
       })
     } else {
       Swal.fire({
@@ -46,7 +50,9 @@ function ItemUpdate() {
     const newData = {
       title,
       description,
-      stock
+      stock,
+      image,
+      price
     }
     console.log('newData',newData);
     try {
@@ -90,6 +96,14 @@ function ItemUpdate() {
             <Form.Group className="mb-3" controlId="formBasicStock">
                 <Form.Label>Stock</Form.Label>
                 <Form.Control type="number" name='stock' value={updateProduct.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicImage">
+                <Form.Label>Image</Form.Label>
+                <Form.Control type="text" name='image' value={updateProduct.image} placeholder="Enter link" onChange={(e) => handleChange(e)}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPrice">
+                <Form.Label>Price</Form.Label>
+                <Form.Control type="number" name='price' value={updateProduct.price} placeholder="Enter new price" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit

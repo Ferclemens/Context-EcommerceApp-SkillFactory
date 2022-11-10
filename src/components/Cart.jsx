@@ -64,17 +64,37 @@ const Cart = () => {
     const productIndice = cart.findIndex((product) => product.id === id)
     
     let productToAddItem = cart[productIndice]
-    console.log('Product to add item', productToAddItem );
-
-    if (count <= stock){
-      productToAddItem = {...productToAddItem, count : productToAddItem.count +1}
-      setCart(cart.splice(productIndice, 1 , productToAddItem))
-      console.log('see new count in product', productToAddItem )
-      console.log('see new cart', cart) 
+    //console.log('Product to add item', productToAddItem );
+    if (count < stock){
+      let newProductAmount = {...productToAddItem, count : productToAddItem.count +1}
+      const newCart = [...cart]
+      newCart.splice(productIndice, 1 , newProductAmount)
+      //console.log('see new count in product', newProductAmount )
+      console.log('NEWCART', newCart);
+      setCart(newCart)
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Sin Stock!',
+    })
+    }
+  }
+  const less = (id, count) => {
+    const productIndice = cart.findIndex((product) => product.id === id)
+    
+    let productToDeleteItem = cart[productIndice]
+    //console.log('Product to delete item', productToDeleteItem );
+    if (count > 0){
+      let newProductAmount = {...productToDeleteItem, count : productToDeleteItem.count -1}
+      const newCart = [...cart]
+      newCart.splice(productIndice, 1 , newProductAmount)
+      //console.log('see new count in product', newProductAmount )
+      console.log('NEWCART', newCart);
+      setCart(newCart)
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'No se pueden descontar más productos.',
     })
     }
   }
@@ -106,7 +126,7 @@ const Cart = () => {
         return (
           <div className='cartContainer' key={item.id}>
             <div className='imageContainer'>
-              <img className='productImg' src='https://cdn-icons-png.flaticon.com/512/3081/3081648.png'></img>
+              <img className='productImg' src={item.image}></img>
             </div>
             <div className="detailContainer">
               <p>ID: {item.id}</p>
@@ -117,8 +137,8 @@ const Cart = () => {
               <p>Cantidad</p>
               <div className="addToggleContainer">
                 <Button variant="outline-primary" onClick={() => more(item.id, item.count, item.stock)}>+</Button>
-                <p>{item.count}</p>
-                <Button variant="outline-primary" onClick={() => less()}>-</Button>
+                <p>{`${item.count} de ${item.stock}`}  </p>
+                <Button variant="outline-primary" onClick={() => less(item.id, item.count)}>-</Button>
               </div>
               <p>precio: {item.price}</p>
               <p>TOTAL: {configResult(item.count * item.price)}</p>

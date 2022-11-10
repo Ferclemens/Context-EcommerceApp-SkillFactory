@@ -61,7 +61,7 @@ function Item({id, stock, title, price, image}) {
     }
 
     const addItem = (count) => {
-        addItemToCart({id, title, stock, price}, count)
+        addItemToCart({id, title, stock, price, image}, count)
         Swal.fire({
             position: 'top-end',
             icon: 'success',
