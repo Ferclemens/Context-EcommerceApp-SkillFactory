@@ -1,73 +1,153 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router';
-import { db } from '../firebase/firebase';
-import { addDoc, collection } from 'firebase/firestore';
-import Swal from 'sweetalert2'
+import React from "react";
+import '../styles/ItemCreate.css'
+import { useNavigate } from "react-router";
+import { db } from "../firebase/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useForm } from "react-hook-form";
 
+const MySwal = withReactContent(Swal);
 
 function ItemCreate() {
-    const [product, setProduct] = useState({
-        title: '',
-        description: '',
-        stock: 0,
-        price:0,
-        image:"",
-    })
-    const navigate = useNavigate()
-    const productsCollection = collection(db,'products')
-    
-    const handleChange = (e) => {
-        setProduct({...product, [e.target.name] : e.target.value})
-        //console.log(e.target.name,'---', e.target.value);
-    }
+  const navigate = useNavigate();
 
-    const addProduct = async (e) => {
-        e.preventDefault()
-        try {
-            await addDoc(productsCollection, product)
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 2000
-              })
-            navigate('/')
-        } catch(error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-            })
-            console.log(error)
-            navigate('/')
-        }
-    }
-       
+  const productsCollection = collection(db, "products");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data, e) => {
+    console.log('data: ', data)
+    addDoc(productsCollection, data)
+    .then(() => {
+        MySwal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+        navigate("/");
+    })
+    .catch((error) => {
+        MySwal.fire({
+            title: "Oops...",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+        });
+        reset();
+    });
+    e.target.reset();
+  };
+
   return (
     <div>
-        <div>CreateProducts</div>
-        <Form onSubmit={(e) => addProduct(e)}>
-            <Form.Group className="mb-3" controlId="formBasicTitle">
-                <Form.Label>Title</Form.Label>
-                <Form.Control type="text" name='title' value={product.title} placeholder="Enter title" onChange={(e) => handleChange(e)}/>
-                <Form.Label>Description</Form.Label>
-                <Form.Control type="text" name='description' value={product.description} placeholder="Enter description" onChange={(e) => handleChange(e)}/>
-                <Form.Label>Stock</Form.Label>
-                <Form.Control type="number" name='stock' value={product.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
-                <Form.Label>Price</Form.Label>
-                <Form.Control type="number" name='stock' value={product.price} placeholder="Enter price" onChange={(e) => handleChange(e)}/>
-                <Form.Label>Image</Form.Label>
-                <Form.Control type="text" name='image' value={product.image} placeholder="Enter image link" onChange={(e) => handleChange(e)}/>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
+      <section className="createItem__container">
+        <div>
+          <form className="createItem__form" onSubmit={handleSubmit(onSubmit)}>
+            <p className="createItem__form-title">Enter a new product</p>
+
+            <label>Title</label>
+            <input
+              type="text"
+              placeholder="Title"
+              autoComplete="off"
+              {...register("title", {
+                required: {
+                  value: true,
+                  message: "The title input is required",
+                },
+              })}
+            />
+            {errors.title && (
+              <span className="createItem__form-input-error">
+                {errors.title.message}
+              </span>
+            )}
+
+            <label>Description</label>
+            <textarea
+              type="text"
+              name="description"
+              cols="30"
+              rows="10"
+              placeholder="Description"
+              autoComplete="off"
+              {...register("description", {
+                required: {
+                  value: true,
+                  message: "The description input is required",
+                },
+              })}
+            ></textarea>
+            {errors.description && (
+              <span className="createItem__form-input-error">
+                {errors.description.message}
+              </span>
+            )}
+
+            <label>Stock</label>
+            <input
+              type="number"
+              {...register("stock", {
+                required: {
+                  value: true,
+                  message: "The stock input is required",
+                },
+              })}
+            />
+            {errors.stock && (
+              <span className="createItem__form-input-error">
+                {errors.stock.message}
+              </span>
+            )}
+
+            <label>Price</label>
+            <input
+              type="number"
+              {...register("price", {
+                required: {
+                  value: true,
+                  message: "The price input is required",
+                },
+              })}
+            />
+            {errors.price && (
+              <span className="createItem__form-input-error">
+                {errors.price.message}
+              </span>
+            )}
+
+            <label>Image</label>
+            <input
+              type="text"
+              placeholder="Image"
+              autoComplete="off"
+              {...register("image", {
+                required: {
+                  value: true,
+                  message: "The image input is required",
+                },
+              })}
+            />
+            {errors.image && (
+              <span className="createItem__form-input-error">
+                {errors.image.message}
+              </span>
+            )}
+
+            <button>Submit</button>
+          </form>
+        </div>
+      </section>
     </div>
-  )
+  );
 }
 
-export default ItemCreate
+export default ItemCreate;
