@@ -31,7 +31,7 @@ function CartProvider({children}) {
       setCart([...cart, product])
     }
   } 
-  console.log('CART',cart);
+  console.log('CART desde CartProvider',cart);
 
   const deleteCart = () => {
     setCart([])
