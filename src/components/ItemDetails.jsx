@@ -53,7 +53,8 @@ function ItemDetails() {
             id: productDetail.id, 
             title: productDetail.title, 
             stock: productDetail.stock,
-            price : productDetail.price}, 
+            price : productDetail.price,
+            image : productDetail.image}, 
             count
         )
         Swal.fire({
