@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 function ItemCount({stock, action}) {
   const [count, setCount] = useState(0)
   const user = useUserContext()
-  console.log('stock desde componente items',stock);
+  //console.log('stock desde componente items',stock);
   const addItem = () => {
     count < stock ? setCount(count+1) : 
     Swal.fire({

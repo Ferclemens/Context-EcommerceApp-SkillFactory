@@ -37,8 +37,8 @@ function ItemDetails() {
             title : productSnap.data().title,
             description :productSnap.data().description,
             stock : productSnap.data().stock,
-            price : productSnap.data().precio,
-            image : productSnap.data().imagen
+            price : productSnap.data().price,
+            image : productSnap.data().image
           })
         } else {
           Swal.fire({

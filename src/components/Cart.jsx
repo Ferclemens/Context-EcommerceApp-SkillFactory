@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/Cart.css";
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2'
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const {cart, deleteCart, setCart } = useCartContext()
   console.log('Producto desde componente Cart',cart);
-  const [numberItems, setNumberItems] = useState(0)
+ 
   
   useEffect(() => {
     setCart(cart);
@@ -60,7 +60,24 @@ const Cart = () => {
       }
     })
   }
-  
+  const more = (id, count, stock) => {
+    const productIndice = cart.findIndex((product) => product.id === id)
+    
+    let productToAddItem = cart[productIndice]
+    console.log('Product to add item', productToAddItem );
+
+    if (count <= stock){
+      productToAddItem = {...productToAddItem, count : productToAddItem.count +1}
+      setCart(cart.splice(productIndice, 1 , productToAddItem))
+      console.log('see new count in product', productToAddItem )
+      console.log('see new cart', cart) 
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Sin Stock!',
+    })
+    }
+  }
   const deletAllList = ()=> {
     Swal.fire({
       title: 'Are you sure?',
@@ -97,12 +114,11 @@ const Cart = () => {
               <p>{item.description}</p>
             </div>
             <div className="totalContainer">
-              <div>
-                <p>cantidad:{item.count}</p>
-                <Button variant="outline-primary" onClick={() => more()}>+</Button>
-                <p>{numberItems}</p>
+              <p>Cantidad</p>
+              <div className="addToggleContainer">
+                <Button variant="outline-primary" onClick={() => more(item.id, item.count, item.stock)}>+</Button>
+                <p>{item.count}</p>
                 <Button variant="outline-primary" onClick={() => less()}>-</Button>
-                <Button variant="success" className='buttonBuy' onClick={() => {addItem(numberItems)}}>Add</Button>
               </div>
               <p>precio: {item.price}</p>
               <p>TOTAL: {configResult(item.count * item.price)}</p>

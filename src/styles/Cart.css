@@ -116,3 +116,8 @@
     border: 1px solid black;
     border-radius: 3px;
 }
+.addToggleContainer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
