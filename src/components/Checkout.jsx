@@ -25,7 +25,7 @@ const Checkout = () => {
     country: "",
     countItems: "",
     price: "",
-    date: "",
+    datePurchase: "",
   });
 
   const productCollection = collection(db, "purchaseClientList");
@@ -74,10 +74,12 @@ const Checkout = () => {
     )
   }
   const handleChange = (e) => {
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
     setUser({
       ...user,
       [e.target.name]: e.target.value.trim(),
-      date: new Date(),
+      datePurchase: hoy.toLocaleDateString(),
       countItems: cart.length,
       price: "",
     });

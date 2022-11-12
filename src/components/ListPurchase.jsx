@@ -6,11 +6,8 @@ const ListPurchase = ({ userPurchase }) => {
   return (
     <Container fluid >
       <Row>
-        
-          {userPurchase.map((product, index) => {
-            return (
-              <div className="table-history-products">
-              <Table striped bordered hover  key={index} >
+      <div className="table-history-products">
+              <Table striped bordered hover >
                 <thead>
                   <tr>
                     <th>Nombre</th>
@@ -23,21 +20,24 @@ const ListPurchase = ({ userPurchase }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>{product.name}</td>
-                    <td>{product.email}</td>
-                    <td>{product.phone}</td>
-                    <td>{product.city}</td>
-                    <td>aca va el date</td>
-                    <td>{product.countItems}</td>
-                    <td>${product.price}</td>
-                  </tr>
-                </tbody>
-              </Table>
-              </div>
-            );
-          })}
-      
+                      {userPurchase.map((product, index) => {
+                        return (
+                
+                      <tr  key={index} >
+                        <td>{product.name}</td>
+                        <td>{product.email}</td>
+                        <td>{product.phone}</td>
+                        <td>{product.city}</td>
+                        <td>{product.datePurchase}</td>
+                        <td>{product.countItems}</td>
+                        <td>${product.price}</td>
+                      </tr>
+                  
+                        );
+                      })}
+             </tbody>
+           </Table>
+         </div>  
       </Row>
     </Container>
   );
