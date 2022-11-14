@@ -121,3 +121,16 @@
     align-items: baseline;
     justify-content: space-around;
 }
+
+.cart-img{
+    width: 100%;
+    height: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.cart-img img{
+    width: 40%;
+    height: 40%;
+}

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import { useCartContext } from "./CartProvider";
 import '../styles/Item.css'
 import { Link } from "react-router-dom";
+import { Row } from "react-bootstrap";
 
 
 const Cart = () => {
@@ -121,7 +122,10 @@ const Cart = () => {
 /*   const totalItemsPrice = cart.reduce((prevValue, currentValue)=> prevValue + (currentValue.count*10),0)
   console.log('total items price', totalItemsPrice); */
   return (
+    <div>  {cart.length > 0 ?
+
     <div>
+    
       {cart.map((item) => {
         return (
           <div className='cartContainer' key={item.id}>
@@ -156,6 +160,13 @@ const Cart = () => {
           Go to pay
         </Link>
       </Button>
+      </div>
+      : 
+   
+      <div>
+        <Row><h1>Empty cart!</h1></Row>
+        <Row className="cart-img"><img src="https://cdn-icons-png.flaticon.com/512/102/102661.png"/></Row>
+       </div>}
     </div>
   )
 };
