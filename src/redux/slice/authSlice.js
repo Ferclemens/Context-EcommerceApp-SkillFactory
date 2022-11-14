@@ -19,7 +19,7 @@ const authSlice = createSlice({
             state.userID = userID
             state.role = role || 'user'
             state.isLoggedIn = true
-            console.log(state.email, state.userName,state.userID, state.role)
+            //console.log(state.email, state.userName,state.userID, state.role)
         },
         REMOVE_ACTIVE_USER: (state, action)=>{
             state.email = null
@@ -27,7 +27,7 @@ const authSlice = createSlice({
             state.userID = null
             state.role = null
             state.isLoggedIn = false
-            console.log(state.isLoggedIn);
+            //console.log(state.isLoggedIn);
         }
    },
 })

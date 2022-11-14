@@ -142,7 +142,7 @@ function ItemCreate() {
               </span>
             )}
 
-            <button>Submit</button>
+            <button className="createItem__btn">Submit</button>
           </form>
         </div>
       </section>

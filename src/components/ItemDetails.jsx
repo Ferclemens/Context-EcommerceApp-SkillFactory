@@ -9,6 +9,7 @@ import { useUserContext } from './UserProvider'
 import '../styles/ProductDetails.css'
 import { useCartContext } from './CartProvider'
 import ItemCount from './ItemCount'
+import ShowOnLogin,{ ShowAdmin } from './hidenLinks'
 
 
 function ItemDetails() {
@@ -130,13 +131,17 @@ function ItemDetails() {
                     <p className='detailContainer'>ID: {productDetail.id}</p>
                 </div>
                 <div className='itemCounterContainer'>
-                { user && user.role === "admin" &&
+                <ShowOnLogin>
+                  <ShowAdmin>
                     <div className='buttonsContainer'>
                         <Link className='buttonUpdate' to={`/update/${productDetail.id}`}><Button variant="outline-primary">Update</Button></Link>
                         <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(productDetail.id)}>Delete</Button>
                     </div>
-                }
+                  </ShowAdmin>
+                </ShowOnLogin>
+                <ShowOnLogin>
                     <ItemCount stock={productDetail.stock} initial={0} action={addItem}/>
+                </ShowOnLogin>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ import ItemCreate from './components/ItemCreate'
 import { Header } from './components/Header'
 import Checkout from "./components/Checkout";
 import ListPurchaseContainer from './components/ListPurchaseContainer'
+import Contact from './components/Contact'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path='/cart' element={<Cart/>} />
             <Route path='/checkout' element={<Checkout/>} />
             <Route path='/order-history' element={<ListPurchaseContainer/>} />
+            <Route path='/contact' element={<Contact/>} />
           </Routes>
           <Footer/>
         </div>

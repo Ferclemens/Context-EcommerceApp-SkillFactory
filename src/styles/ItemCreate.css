@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px 0;
 }
 
 .createItem__form {
@@ -18,6 +19,10 @@
 .createItem__form-input-error {
     color: red;
     font-size: 0.8rem;
+}
+
+.createItem__btn {
+    margin-top: 25px;
 }
 
 @media screen and (min-width: 768px) {
