@@ -20,7 +20,7 @@ const ListPurchase = ({ userPurchase }) => {
                   </tr>
                 </thead>
                 <tbody>
-                      {userPurchase.map((product, index) => {
+                      {userPurchase?.map((product, index) => {
                         return (
                 
                       <tr  key={index} >
