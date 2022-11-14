@@ -57,11 +57,23 @@ function Item({id, stock, title, price, image, getProducts}) {
     }
 
     const addItem = (count) => {
+       
+        count > 0 ?
         addItemToCart({id, title, stock, price, image}, count)
+        : null
+        count > 0 ?
         Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Producto agregado correctamente!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        
+          : Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Error',
             showConfirmButton: false,
             timer: 1500
           })

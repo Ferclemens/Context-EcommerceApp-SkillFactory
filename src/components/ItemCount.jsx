@@ -5,7 +5,7 @@ import { useUserContext } from './UserProvider'
 import Swal from 'sweetalert2'
 
 function ItemCount({stock, action}) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   const user = useUserContext()
   //console.log('stock desde componente items',stock);
   const addItem = () => {
@@ -24,7 +24,7 @@ function ItemCount({stock, action}) {
   }
 
   useEffect(()=>{
-    setCount(0)
+    setCount(1)
   },[])
 
   return (

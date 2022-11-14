@@ -84,7 +84,7 @@ const Cart = () => {
     
     let productToDeleteItem = cart[productIndice]
     //console.log('Product to delete item', productToDeleteItem );
-    if (count > 0){
+    if (count > 1){
       let newProductAmount = {...productToDeleteItem, count : productToDeleteItem.count -1}
       const newCart = [...cart]
       newCart.splice(productIndice, 1 , newProductAmount)
