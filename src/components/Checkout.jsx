@@ -81,7 +81,7 @@ const Checkout = () => {
       [e.target.name]: e.target.value.trim(),
       datePurchase: hoy.toLocaleDateString(),
       countItems: cart.length,
-      price: "",
+      price: totalValueCart(),
     });
   };
   return (
