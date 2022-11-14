@@ -21,7 +21,7 @@ function ItemListContainer() {
     //console.log('Base de datos',items);
   return (
     <div>
-        <ItemList data={items}/>
+        <ItemList data={items} getProducts={getProducts}/>
     </div>
   )
 }

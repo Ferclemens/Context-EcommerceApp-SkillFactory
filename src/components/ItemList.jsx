@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import '../styles/ItemList.css'
 
-function ItemList({data}) {
+function ItemList({data, getProducts}) {
     console.log("Products en itemList", data);
   return (
     <div>
@@ -17,6 +17,7 @@ function ItemList({data}) {
                         title={product.title}
                         image={product.image}
                         price={product.price}
+                        getProducts={getProducts}
                         />
                     )
                 })}

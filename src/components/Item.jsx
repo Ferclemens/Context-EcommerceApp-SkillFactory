@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { db } from '../firebase/firebase'
 import  {deleteDoc, doc} from 'firebase/firestore'
 
@@ -14,7 +14,7 @@ import { useCartContext } from './CartProvider';
 import ItemCount from './ItemCount';
 
 
-function Item({id, stock, title, price, image}) {
+function Item({id, stock, title, price, image, getProducts}) {
     const user = useUserContext()
     const { cart, addItemToCart } = useCartContext()
     const navigate = useNavigate()
@@ -32,12 +32,8 @@ function Item({id, stock, title, price, image}) {
           }).then((result) => {
             if (result.isConfirmed) {
               deleteProduct(id)
-                Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
             }
+            getProducts();
           })
     }
     const deleteProduct = async (id) => {
@@ -70,6 +66,9 @@ function Item({id, stock, title, price, image}) {
             timer: 1500
           })
     }
+
+  
+
 
     return (
         <div className='ItemListContainer'>
