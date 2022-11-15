@@ -5,6 +5,7 @@
     justify-content: space-between;
     border: 1px solid black;
     border-radius: 5px;
+    transition: 1s;
 }
 .detailContainer {
     margin: 10px;
@@ -22,4 +23,8 @@
 .buttonBuy {
     width: 64%;
     margin-bottom: 10px;
+}
+
+.ItemListContainer:hover {
+    transform: scale(1.03);
 }

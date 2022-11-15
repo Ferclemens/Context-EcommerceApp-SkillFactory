@@ -2,6 +2,8 @@ import { collection, getDocs } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { db } from '../firebase/firebase'
 import ItemList from './ItemList'
+import Loading from './Loading'
+
 
 function ItemListContainer() {
     const [items, setItems] = useState([])
@@ -21,7 +23,11 @@ function ItemListContainer() {
     //console.log('Base de datos',items);
   return (
     <div>
-        <ItemList data={items} getProducts={getProducts}/>
+        {items.length === 0 
+            ? 
+            <Loading />
+            :
+            <ItemList data={items} getProducts={getProducts}/>}
     </div>
   )
 }

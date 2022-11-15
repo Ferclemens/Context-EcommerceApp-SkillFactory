@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { auth } from '../firebase/firebase'; 
+import { auth } from '../firebase/firebase';
+import Loading from './Loading'
 
 
 const MySwal = withReactContent(Swal);
@@ -54,7 +55,7 @@ const Login = () => {
 
   return (
     <>
-    {isLoading && <h1>Cargando... </h1>}     
+    {isLoading && <Loading />}     
     <section className="login__container">
       <div className="login__checkin">
         <form className="login__form" onSubmit={handleSubmit(onSubmit)}>

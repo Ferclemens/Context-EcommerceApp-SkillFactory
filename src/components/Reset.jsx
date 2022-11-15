@@ -6,6 +6,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { auth } from '../firebase/firebase';
+import Loading from './Loading'
 
 const MySwal = withReactContent(Swal);
 
@@ -47,7 +48,7 @@ const Reset = () => {
 
   return (
     <>
-    {isLoading && <h1>Cargando...</h1>}     
+    {isLoading && <Loading />}     
     <section className='login__container'>
         <div className='login__checkin'>
           <p className='login__form-title'>Reset Password</p>

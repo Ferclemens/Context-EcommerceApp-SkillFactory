@@ -7,4 +7,5 @@
 
 .table-history-products{
     overflow-x: auto;
+    min-height: 77vh;
 }
