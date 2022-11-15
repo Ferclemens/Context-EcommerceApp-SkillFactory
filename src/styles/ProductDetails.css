@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 83vh;
+    margin-bottom: 15px;
 }
 .itemCard {
     display: flex;

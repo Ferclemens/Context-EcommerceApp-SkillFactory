@@ -5,11 +5,12 @@ import { Navigate, useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { db } from '../firebase/firebase'
-import { useUserContext } from './UserProvider'
+//import { useUserContext } from './UserProvider'
 import '../styles/ProductDetails.css'
 import { useCartContext } from './CartProvider'
 import ItemCount from './ItemCount'
 import ShowOnLogin,{ ShowAdmin } from './hidenLinks'
+import Loading from './Loading'
 
 
 function ItemDetails() {
@@ -21,10 +22,11 @@ function ItemDetails() {
         price: '',
         image: '',
     })
+    const [loading, setLoading] = useState(true)
     const { id } = useParams()
     //console.log('useparams', id);
     console.log('Product details',productDetail);
-    const user = useUserContext()
+    //const user = useUserContext()
     const { addItemToCart } = useCartContext()
     const navigate = useNavigate()
 
@@ -33,6 +35,7 @@ function ItemDetails() {
         const productSnap = await getDoc(prodRef)
         console.log('detalle de productSnap',productSnap.data());
         if (productSnap.exists()){
+          setLoading(false)
           setProductDetail({
             id: id,
             title : productSnap.data().title,
@@ -119,6 +122,8 @@ function ItemDetails() {
       },[id])
 
     return (
+      <>
+        {loading && <Loading />}
         <div className='itemDetailContainer'>
             <h1>Product Detail</h1>
             <div className='itemCard' key={productDetail.id}>
@@ -145,6 +150,7 @@ function ItemDetails() {
                 </div>
             </div>
         </div>
+      </>
     )
 }
 

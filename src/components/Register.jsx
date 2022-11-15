@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase/firebase';
+import Loading from './Loading'
 
 
 const MySwal = withReactContent(Swal);
@@ -67,7 +68,7 @@ const Register = () => {
 
   return (
     <>  
-        {isLoading && <h1>Cargando...(agregar un spinner)</h1>}   
+        {isLoading && <Loading />}   
         <section className='login__container'>
         <div className='login__checkin'>
             <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
