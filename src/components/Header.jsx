@@ -92,27 +92,6 @@ export const Header = () => {
       }
 
     return (
-/*             <div className="navbarContainer">
-                <div>
-                    <Link to={'/'}><img src='https://cdn-icons-png.flaticon.com/512/2981/2981297.png' className="logoImg"/></Link>
-                    <h1>E-commerce App</h1>
-                </div>
-                <div>
-                    <ShowOnLogin>    
-                        <h2>Welcome! {displayName}</h2>
-                        <ShowAdmin>
-                            <Link to={'/create'}><Button variant="primary">Create</Button></Link>
-                        </ShowAdmin>
-                        <Button variant="primary" onClick={logoutUser}>Log out</Button> 
-                        <Link to={'/cart'}><img src='https://cdn-icons-png.flaticon.com/512/2331/2331970.png' className='cartWidget'/></Link>
-                    </ShowOnLogin>
-                    <ShowOnLogout>
-                        <Link to={'/login'}><Button variant="primary">Login</Button></Link>
-                        <Link to={'/register'}><Button variant="primary">Register</Button></Link>
-                    </ShowOnLogout>
-                </div>
-            </div> */
-
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
               <Link to='/' className='navbar__title'><Navbar.Brand><span className='navbar__title-span'>SF</span> e-commerce</Navbar.Brand></Link> 
@@ -121,7 +100,8 @@ export const Header = () => {
                 <Nav className="me-auto">
                 <ShowOnLogin>
                   <ShowAdmin>
-                    <NavLink to='/admin' className={({isActive})=>(isActive ? 'navbar__admin isActive':'navbar__admin noActive')}><Navbar>Admin</Navbar></NavLink>
+                    <NavLink to='/create' className={({isActive})=>(isActive ? 'navbar__admin isActive':'navbar__admin noActive')}><Navbar>Create</Navbar></NavLink>
+                    <NavLink to='/order-history' className={({isActive})=>(isActive ? 'navbar__order isActive':'navbar__order noActive')}><Navbar>Orders</Navbar></NavLink>
                   </ShowAdmin>
                 </ShowOnLogin>
                   <NavLink to='/contact' className={({isActive})=>(isActive ? 'navbar__contact isActive':'navbar__contact noActive')}><Navbar>Contact us</Navbar></NavLink>
@@ -130,7 +110,6 @@ export const Header = () => {
                   <ShowOnLogin>
                     <Link to='#' className='navbar__user'><Navbar><span className='navbar__user-hi'>Hi </span>{name}</Navbar></Link>
                     <NavLink to='/' className='navbar__login noActive' onClick={logoutUser} ><Navbar>Logout</Navbar></NavLink>
-                    <NavLink to='/order-history' className={({isActive})=>(isActive ? 'navbar__order isActive':'navbar__order noActive')}><Navbar>My Orders</Navbar></NavLink>
                     <NavLink to='/cart' className={({isActive})=>(isActive ? 'navbar__cart isActive':'navbar__cart noActive')}><Navbar><span className="material-symbols-outlined">shopping_cart</span>{cart.length}</Navbar></NavLink>
                   </ShowOnLogin>
                   <ShowOnLogout>

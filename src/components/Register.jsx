@@ -60,7 +60,7 @@ const Register = () => {
         });
         const userRef = doc(db, `users/${result.user.uid}`)
         setDoc(userRef,{...data, role})
-        navigate('/login')
+        navigate('/')
       }
       e.target.reset()
     }

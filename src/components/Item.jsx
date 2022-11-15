@@ -12,6 +12,7 @@ import { useUserContext } from './UserProvider';
 
 import { useCartContext } from './CartProvider';
 import ItemCount from './ItemCount';
+import ShowOnLogin, { ShowAdmin } from './hidenLinks.js'
 
 
 function Item({id, stock, title, price, image, getProducts}) {
@@ -91,14 +92,19 @@ function Item({id, stock, title, price, image, getProducts}) {
                 <p>Price: {price}</p>
             </div>
             <div>
-            { user && user.role === "admin" &&
+            <ShowOnLogin>
+                <ShowAdmin>
                 <div className='buttonsContainer'>
                     <Link className='buttonUpdate' to={`/update/${id}`}><Button variant="outline-primary">Update</Button></Link>
                     <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(id)}>Delete</Button>
                 </div>
-            }
+                </ShowAdmin>
+            </ShowOnLogin>
+
             <Link to={`/details/${id}`}><Button variant="outline-primary" className='buttonBuy'>Details</Button></Link>
-            <ItemCount stock={stock} action={addItem}/>
+            <ShowOnLogin>
+                <ItemCount stock={stock} action={addItem}/>
+            </ShowOnLogin>
             </div>
         </div>
     )
