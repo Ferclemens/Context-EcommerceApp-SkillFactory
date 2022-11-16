@@ -5,7 +5,7 @@ import Slider from './Slider';
 
 
 function ItemList({data, getProducts}) {
-    console.log("Products en itemList", data);
+    //console.log("Products en itemList", data);
   return (
     <div>
         <Slider />

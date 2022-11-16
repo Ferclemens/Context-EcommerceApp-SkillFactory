@@ -24,7 +24,7 @@ const Contact = () => {
 
     emailjs.sendForm('service_vuf8zra', 'template_8z89ild', e.target, 'xFa04mzHu00vjn8BZ')
       .then((result) => {
-          console.log(result.text);
+          //console.log(result.text);
           MySwal.fire({
             title: "Success!",
             text: "The message has been sent successfully",

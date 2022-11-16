@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router';
 import { db } from '../firebase/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2'
-import { async } from '@firebase/util';
 
 function ItemUpdate() {
     const [updateProduct, setUpdateProduct] = useState({
@@ -21,7 +20,7 @@ function ItemUpdate() {
   const getProductById = async(id) => {
     const prodRef = doc(db, 'products',id)
     const productSnap = await getDoc(prodRef)
-    console.log(productSnap);
+    //console.log(productSnap);
     if (productSnap.exists()){
       setUpdateProduct({
         title : productSnap.data().title,
@@ -39,13 +38,14 @@ function ItemUpdate() {
       navigate('/')
     }
   }
+
   const handleChange = (e) => {
     setUpdateProduct({...updateProduct, [e.target.name] : e.target.value})
   }
   
   const editProduct = async (e) => {
-    const {title, description, stock} = updateProduct
     e.preventDefault()
+    const {title, description, stock, image, price} = updateProduct
     const prodRef = doc(db,'products',id)
     const newData = {
       title,
@@ -54,7 +54,6 @@ function ItemUpdate() {
       image,
       price
     }
-    console.log('newData',newData);
     try {
       await updateDoc(prodRef,newData)
       Swal.fire({
@@ -79,7 +78,7 @@ function ItemUpdate() {
   useEffect(() => {
     getProductById(id)
   },[id])
-  console.log('getProductById(id)',updateProduct);
+  //console.log('getProductById(id)',updateProduct);
     
   return (
     <div>
