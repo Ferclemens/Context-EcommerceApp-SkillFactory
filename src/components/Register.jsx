@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/Auth.css'
+import '../styles/Register.css'
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -69,11 +69,11 @@ const Register = () => {
   return (
     <>  
         {isLoading && <Loading />}   
-        <section className='login__container'>
-        <div className='login__checkin'>
-            <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
-            <label className='login__input-title'>Name</label>
+        <section className='register__container'>
+            <form className='register__form' onSubmit={handleSubmit(onSubmit)}>
+            <label className='title__input'>Name</label>
             <input
+                className='inputRegister'
                 type="text"
                 placeholder='Name'
                 autoComplete="off"
@@ -86,8 +86,9 @@ const Register = () => {
             />
             {errors.name && <span className="login__form-input-error">{errors.name.message}</span>}
 
-            <label className='login__input-title'>Email</label>
+            <label className='title__input'>Email</label>
             <input
+                className='inputRegister'
                 type="text"
                 placeholder='user@gmail.com'
                 autoComplete="off"
@@ -104,8 +105,9 @@ const Register = () => {
             />
             {errors.email && <span className="login__form-input-error">{errors.email.message}</span>}
 
-            <label className='login__input-title'>Password</label>
+            <label className='title__input'>Password</label>
             <input
+                className='inputRegister'
                 type="password"
                 placeholder='******'
                 autoComplete="off"
@@ -122,8 +124,9 @@ const Register = () => {
             />
             {errors.password && <span className="login__form-input-error">{errors.password.message}</span>}
 
-            <label className='login__input-title'>Confirm Password</label>
+            <label className='title__input'>Confirm Password</label>
             <input
+                className='inputRegister'
                 type="password"
                 placeholder='******'
                 autoComplete="off"
@@ -143,9 +146,8 @@ const Register = () => {
             <p className='login__form-password'>Min 6 and max 15 characters, at least: one uppercase and one lowercase letter, one number and one special character</p>
 
             <button className='login__user-btn'>Register</button>
-            <p className='login__register-text'>Do you already have an account? <span><Link to='/login' className='login__register-link'>Login</Link></span></p>
+            <p className='login__register-text'>Do you already have an account? <span><Link to='/login' className='link'>Login</Link></span></p>
             </form>
-        </div>
         </section>
     </>
   )

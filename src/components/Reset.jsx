@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/Auth.css'
+//import '../styles/Reset.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -73,7 +73,7 @@ const Reset = () => {
           <button className='login__user-btn'>Reset Password</button>
 
           </form>
-          <p className='login__register-text'>Don't have an account? <span><Link to='/register' className='login__register-link'>Register</Link></span></p>
+          <p className='login__register-text'>Don't have an account? <span><Link to='/register' className='link'>Register</Link></span></p>
         </div>
 
     </section>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/Auth.css'
+import '../styles/Login.css'
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -57,10 +57,10 @@ const Login = () => {
     <>
     {isLoading && <Loading />}     
     <section className="login__container">
-      <div className="login__checkin">
         <form className="login__form" onSubmit={handleSubmit(onSubmit)}>
-          <p className="login__form-title">Login</p>
+          <p className="login__form-title">Ingresar</p>
           <input
+            className="input__form"
             type="text"
             placeholder="user@gmail.com"
             autoComplete="off"
@@ -82,6 +82,7 @@ const Login = () => {
           )}
 
           <input
+            className="input__form"
             type="password"
             placeholder="******"
             autoComplete="off"
@@ -112,19 +113,19 @@ const Login = () => {
           </label>  */}
           
           <button className="login__user-btn">Login</button>
-          <Link to="/reset" className="login__form-forgotPswd">
+          <div></div>
+          <Link to="/reset" className="link">
             <p>Forgot Password</p>
           </Link>
-          <p className="login__register-text">
+          <p>
             Don't have an account?{" "}
             <span>
-              <Link to="/register" className="login__register-link">
+              <Link to="/register" className="link">
                 Register
               </Link>
             </span>
           </p>
         </form>
-      </div>
     </section>
     </>
   );
