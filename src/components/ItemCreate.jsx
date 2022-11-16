@@ -22,7 +22,7 @@ function ItemCreate() {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    console.log('data: ', data)
+    //console.log('data: ', data)
     addDoc(productsCollection, data)
     .then(() => {
         MySwal.fire({

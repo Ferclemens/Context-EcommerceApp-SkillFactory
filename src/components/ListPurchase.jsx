@@ -2,7 +2,7 @@ import { Button, Container, Row, Table } from "react-bootstrap";
 import "../styles/ProductsCount.css"
 
 const ListPurchase = ({ userPurchase }) => {
-  console.log(userPurchase);
+  //console.log(userPurchase);
   return (
     <Container fluid >
       <Row>

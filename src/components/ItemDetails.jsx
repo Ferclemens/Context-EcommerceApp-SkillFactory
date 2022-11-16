@@ -25,7 +25,7 @@ function ItemDetails() {
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
     //console.log('useparams', id);
-    console.log('Product details',productDetail);
+    //console.log('Product details',productDetail);
     //const user = useUserContext()
     const { addItemToCart } = useCartContext()
     const navigate = useNavigate()
@@ -33,7 +33,7 @@ function ItemDetails() {
     const getProductById = async(id) => {
         const prodRef = doc(db, 'products',id)
         const productSnap = await getDoc(prodRef)
-        console.log('detalle de productSnap',productSnap.data());
+        //console.log('detalle de productSnap',productSnap.data());
         if (productSnap.exists()){
           setLoading(false)
           setProductDetail({
@@ -103,7 +103,7 @@ function ItemDetails() {
     }
     const deleteProduct = async (id) => {
         const productToDelete = doc(db, 'products',id)
-        console.log('producto a borrar', productToDelete);
+        //console.log('producto a borrar', productToDelete);
         try{
             await deleteDoc(productToDelete)
             navigate('/')
