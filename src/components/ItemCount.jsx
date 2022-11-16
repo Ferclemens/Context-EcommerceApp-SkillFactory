@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useUserContext } from './UserProvider'
 import Swal from 'sweetalert2'
+import '../styles/ItemDetails.css'
 
 function ItemCount({stock, action}) {
   const [count, setCount] = useState(1)

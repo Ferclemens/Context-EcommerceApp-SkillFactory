@@ -1,7 +1,39 @@
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+}
+
+.itemListContainer {
+    background-color: var(--Paragraph);
+    font-family: 'Josefin Sans', sans-serif;
+}
 .cardList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
     padding: 50px 0;
+    background: rgb(41,21,32);
+    background: linear-gradient(38deg, rgba(41,21,32,1) 21%, rgba(169,32,76,1) 100%); 
+}
+.titleList {
+    font-size: xxx-large;
+    padding: 20px;
+}
+.TitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow {
+    height: 80px;
+    width: auto;
 }

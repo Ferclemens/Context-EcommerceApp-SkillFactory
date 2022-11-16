@@ -1,1 +1,9 @@
 
+.sliderContainer {
+    margin-top: 67px;
+}
+@media (max-width: 991px) {
+    .sliderContainer {
+        margin-top: 57px;
+    }
+}
