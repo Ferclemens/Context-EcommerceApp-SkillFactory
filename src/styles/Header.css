@@ -1,3 +1,10 @@
+.headerContainer {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 .navbar__title, .navbar__admin, .navbar__contact, .navbar__user, .navbar__order, .navbar__login, .navbar__cart {
     text-decoration: none;
     padding-top: 11px;

@@ -84,22 +84,22 @@ function Item({id, stock, title, price, image, getProducts}) {
 
 
     return (
-        <div className='ItemListContainer'>
-            <h3>{title}</h3>
-            <div className='detailContainer'>
+        <div className='ItemCardContainer'>
+            <h3 className='title'>{title}</h3>
+            <div className='detailCardContainer'>
                 <img className='productImg' src={image}></img>
                 <p>Stock: {stock}</p>
-                <p>Price: {price}</p>
+                <p>Price: ${price}</p>
             </div>
             <div>
-            <ShowOnLogin>
+{/*             <ShowOnLogin>
                 <ShowAdmin>
-                <div className='buttonsContainer'>
+                <div className='buttonsCon  tainer'>
                     <Link className='buttonUpdate' to={`/update/${id}`}><Button variant="outline-primary">Update</Button></Link>
                     <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(id)}>Delete</Button>
                 </div>
                 </ShowAdmin>
-            </ShowOnLogin>
+            </ShowOnLogin> */}
 
             <Link to={`/details/${id}`}><Button variant="outline-primary" className='buttonBuy'>Details</Button></Link>
             <ShowOnLogin>

@@ -144,8 +144,8 @@ const Cart = () => {
                 <p>{`${item.count} de ${item.stock}`}  </p>
                 <Button variant="outline-primary" onClick={() => less(item.id, item.count)}>-</Button>
               </div>
-              <p>precio: {item.price}</p>
-              <p>TOTAL: {configResult(item.count * item.price)}</p>
+              <p>precio: ${item.price}</p>
+              <p>TOTAL: ${configResult(item.count * item.price)}</p>
               <Button variant="danger" onClick={() => deleteOneProduct(item.id)}>Delete product</Button>
             </div>
           </div>
@@ -153,7 +153,7 @@ const Cart = () => {
       })}
       <div className="totalGralContainer">
         <Button variant="danger" onClick={deletAllList}>Delet All List</Button>
-        TOTAL {totalPay()}
+        TOTAL ${totalPay()}
       </div>
       <Button variant="info">
         <Link to={"/checkout"}>

@@ -7,9 +7,13 @@ import Slider from './Slider';
 function ItemList({data, getProducts}) {
     console.log("Products en itemList", data);
   return (
-    <div>
+    <div className='itemListContainer'>
         <Slider />
-        <h1>Products List</h1>
+        <div className='TitleContainer'>
+            <img  className='arrow' src='https://cdn-icons-png.flaticon.com/512/5548/5548091.png'/>
+            <h1 className='titleList'>Catálogo de camisetas</h1>
+            <img className='arrow' src='https://cdn-icons-png.flaticon.com/512/5548/5548091.png'/>
+        </div>
         <div className='cardList'>
             {data.map((product) => {
                 return (

@@ -92,6 +92,7 @@ export const Header = () => {
       }
 
     return (
+          <div className="headerContainer">
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
               <Link to='/' className='navbar__title'><Navbar.Brand><span className='navbar__title-span'>SF</span> e-commerce</Navbar.Brand></Link> 
@@ -120,5 +121,6 @@ export const Header = () => {
               </Navbar.Collapse>
             </Container>
           </Navbar>
+        </div>
         )
 }

@@ -1,14 +1,15 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-/* import '../styles/Slider.css' */
+import '../styles/Slider.css'
 import img1 from '../assets/seleccionArgentina.jpg'
 import img2 from '../assets/seleccionBrasil.jpg'
 import img3 from '../assets/seleccionPortugal.jpg'
 
+
 const Slider = () => {
     return (
         <>
-        <div>
+        <div className='sliderContainer'>
           <Carousel variant="dark" className='slider'>
             <Carousel.Item interval={1500}>
               <img

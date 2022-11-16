@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { db } from '../firebase/firebase'
 //import { useUserContext } from './UserProvider'
-import '../styles/ProductDetails.css'
+import '../styles/ItemDetails.css'
 import { useCartContext } from './CartProvider'
 import ItemCount from './ItemCount'
 import ShowOnLogin,{ ShowAdmin } from './hidenLinks'
@@ -125,17 +125,18 @@ function ItemDetails() {
       <>
         {loading && <Loading />}
         <div className='itemDetailContainer'>
-            <h1>Product Detail</h1>
             <div className='itemCard' key={productDetail.id}>
                 <h3>{productDetail.title}</h3>
                 <div className='detailContainer'>
                     <img className='productImg' src={productDetail.image}></img>
-                    <p>{productDetail.description}</p>
-                    <p>Stock: {productDetail.stock}</p>
-                    <p>Precio: {productDetail.price}</p>
-                    <p className='detailContainer'>ID: {productDetail.id}</p>
+                    <div>
+                      <p>{productDetail.description}</p>
+                      <p>Stock: {productDetail.stock}</p>
+                      <p>Precio: {productDetail.price}</p>
+                      <p>ID: {productDetail.id}</p>
+                    </div>
                 </div>
-                <div className='itemCounterContainer'>
+                <div className='actionsContainer'>
                 <ShowOnLogin>
                   <ShowAdmin>
                     <div className='buttonsContainer'>
