@@ -1,0 +1,9 @@
+.loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgb(131,24,24);
+    background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
+}

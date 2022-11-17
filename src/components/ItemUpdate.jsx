@@ -5,13 +5,14 @@ import { useNavigate, useParams } from 'react-router';
 import { db } from '../firebase/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2'
-import { async } from '@firebase/util';
 
-function updateProducts() {
+function ItemUpdate() {
     const [updateProduct, setUpdateProduct] = useState({
       title: '',
       description: '',
-      stock: 0
+      stock: 0,
+      image: '',
+      price: 0
   })
   const navigate = useNavigate()
   const { id } = useParams()
@@ -19,12 +20,14 @@ function updateProducts() {
   const getProductById = async(id) => {
     const prodRef = doc(db, 'products',id)
     const productSnap = await getDoc(prodRef)
-    console.log(productSnap);
+    //console.log(productSnap);
     if (productSnap.exists()){
       setUpdateProduct({
         title : productSnap.data().title,
         description :productSnap.data().description,
-        stock : productSnap.data().stock
+        stock : productSnap.data().stock,
+        image : productSnap.data().image,
+        price : productSnap.data().price
       })
     } else {
       Swal.fire({
@@ -35,20 +38,22 @@ function updateProducts() {
       navigate('/')
     }
   }
+
   const handleChange = (e) => {
     setUpdateProduct({...updateProduct, [e.target.name] : e.target.value})
   }
   
   const editProduct = async (e) => {
-    const {title, description, stock} = updateProduct
     e.preventDefault()
+    const {title, description, stock, image, price} = updateProduct
     const prodRef = doc(db,'products',id)
     const newData = {
       title,
       description,
-      stock
+      stock,
+      image,
+      price
     }
-    console.log('newData',newData);
     try {
       await updateDoc(prodRef,newData)
       Swal.fire({
@@ -73,11 +78,11 @@ function updateProducts() {
   useEffect(() => {
     getProductById(id)
   },[id])
-  console.log('getProductById(id)',updateProduct);
+  //console.log('getProductById(id)',updateProduct);
     
   return (
     <div>
-        <div>UpdateProducts</div>
+        <div>Update Products</div>
         <Form onSubmit={(e) => editProduct(e)}>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
@@ -91,6 +96,14 @@ function updateProducts() {
                 <Form.Label>Stock</Form.Label>
                 <Form.Control type="number" name='stock' value={updateProduct.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicImage">
+                <Form.Label>Image</Form.Label>
+                <Form.Control type="text" name='image' value={updateProduct.image} placeholder="Enter link" onChange={(e) => handleChange(e)}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPrice">
+                <Form.Label>Price</Form.Label>
+                <Form.Control type="number" name='price' value={updateProduct.price} placeholder="Enter new price" onChange={(e) => handleChange(e)}/>
+            </Form.Group>
             <Button variant="primary" type="submit">
                 Submit
             </Button>
@@ -99,4 +112,4 @@ function updateProducts() {
   )
 }
 
-export default updateProducts
+export default ItemUpdate

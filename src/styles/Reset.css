@@ -1,0 +1,44 @@
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --ButtonDarkness: #e7b160;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
+}
+.reset__container {
+    background: rgb(131,24,24);
+    background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
+    font-family: var(--FontFamily);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.input__form {
+    border: none;
+    outline: none;
+}
+.reset__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: var(--Secondary);
+    border-radius: 3px;
+    padding: 20px 40px 5px 40px;
+}
+.reset__form-title {
+    font-size: larger;
+}
+.alert__mesaje {
+    color: var(--Tertiary);
+}

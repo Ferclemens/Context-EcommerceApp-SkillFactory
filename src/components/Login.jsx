@@ -1,89 +1,136 @@
-import { async } from "@firebase/util";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router";
-import {auth, app, db} from '../firebase/firebase'
-import Swal from 'sweetalert2'
-import { doc, setDoc } from "firebase/firestore";
+import '../styles/Login.css'
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { auth } from '../firebase/firebase';
+import Loading from './Loading'
 
+
+const MySwal = withReactContent(Swal);
 
 const Login = () => {
-    const [isRegistered, setIsRegistered] = useState(false)
-    
-    const navigate = useNavigate()
-    const registerUser = async (email, password, role) => {
-        console.log('registerUser', email, password, role);
-        const result = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-        ).then((userData) => {
-            console.log('userData', userData)
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 2000
-              })
-            return userData
-        })
-        //console.log('result', result);
-        const userRef = doc(db, `users/${result.user.uid}`)
-        setDoc(userRef,{email, role})
-        navigate('/')
-    }
-    
-    const SubmitUser = (e) => {
-        e.preventDefault()
-        const email = e.target.email.value
-        const password = e.target.password.value
-        const role = e.target.role.value
-        //console.log(email, password, role);
+  const navigate = useNavigate()
 
-        if (isRegistered) {
-            registerUser(email, password, role)
-        } else {
-            signInWithEmailAndPassword(auth, email, password)
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 2000
-              })
-            navigate('/')
-        }
-    }
+  const [ isLoading, setIsLoading ] = useState(false)
 
-    return (
-        <div>
-            {isRegistered ? <h1>Register</h1> : <h1>Login</h1>}
-            <Form onSubmit={(e) => SubmitUser(e)}>
-                <Form.Group className="mb-3" controlId="formBasicTitle">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email"/>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Enter password"/>
-                    <Form.Label>Rol</Form.Label>
-                    <select id='role' name="role">
-                        <option value='admin'>Admin</option>
-                        <option value='user'>User</option>
-                    </select>
-                </Form.Group>
-                <Button variant="primary" type="submit" className="mb-3">
-                    {isRegistered
-                        ? 'Register' : 'Lets In!'
-                    }
-                </Button>
-            </Form>
-            <Button variant="primary" onClick={() => setIsRegistered(!isRegistered)}>
-                    {isRegistered
-                        ? 'Have account? log in' : 'Don\'t have account? Register'
-                    }
-            </Button>
-        </div>
-    )
-}
-export default Login
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data, e) => {
+    setIsLoading(true)
+    signInWithEmailAndPassword(auth, data.email, data.password)
+  .then((userCredential) => {
+    //const user = userCredential.user;
+    //console.log(user)
+    setIsLoading(false)
+    MySwal.fire({
+      title: "Welcome!",
+      text: "welcome to EcommerceApp",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500
+    })
+    navigate('/')
+  })
+  .catch((error) => {
+    MySwal.fire({
+      title: 'Oops...',
+      text: error.message,
+      icon: "error",
+      confirmButtonText: "Ok",
+    })
+    setIsLoading(false)
+    reset()
+  });
+
+    e.target.reset();
+  };
+
+  return (
+    <>
+    {isLoading && <Loading />}     
+    <section className="login__container">
+      <div className="login__container__child">
+        <form className="login__form" onSubmit={handleSubmit(onSubmit)}>
+          <p className="login__form-title">Ingresar</p>
+          <input
+            className="input__form"
+            type="text"
+            placeholder="user@gmail.com"
+            autoComplete="off"
+            {...register("email", {
+              required: {
+                value: true,
+                message: "The email input is required",
+              },
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "The format is not correct",
+              },
+            })}
+          />
+          {errors.email && (
+            <span className="alert__mesaje">
+              {errors.email.message}
+            </span>
+          )}
+
+          <input
+            className="input__form"
+            type="password"
+            placeholder="******"
+            autoComplete="off"
+            {...register("password", {
+              required: {
+                value: true,
+                message: "The password input is required",
+              },
+              pattern: {
+                value:
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}/,
+                message: "The format is not correct",
+              },
+            })}
+          />
+          {errors.password && (
+            <span className="alert__mesaje">
+              {errors.password.message}
+            </span>
+          )}
+
+{/*           <label className="login__form-label-role">
+            Role:
+            <select id="role">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </label>  */}
+          
+          <button className="login__user-btn">Login</button>
+          <div></div>
+          <Link to="/reset" className="link">
+            <p>Forgot Password</p>
+          </Link>
+          <p>
+            Don't have an account?{" "}
+            <span>
+              <Link to="/register" className="link">
+                Register
+              </Link>
+            </span>
+          </p>
+        </form>
+      </div>
+    </section>
+    </>
+  );
+};
+
+export default Login;

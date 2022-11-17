@@ -1,25 +1,46 @@
 import { Route, Routes } from 'react-router'
 import './styles/App.css'
-import CreateProducts from './components/CreateProducts'
-import {Navbar} from './components/Navbar'
-import Products from './components/Products'
-import UpdateProducts from './components/UpdateProducts'
 import Login from './components/Login'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
+import UserProvider from './components/UserProvider'
+import Register from './components/Register'
+import Reset from './components/Reset'
+import CartProvider from './components/CartProvider'
+import ItemListContainer from './components/ItemListContainer'
+import ItemDetails from './components/ItemDetails'
+import ItemUpdate from './components/ItemUpdate'
+import ItemCreate from './components/ItemCreate'
+import { Header } from './components/Header'
+import Checkout from "./components/Checkout";
+import ListPurchaseContainer from './components/ListPurchaseContainer'
+import Contact from './components/Contact'
+
 
 function App() {
  
   return (
-    <div className='appContainer'>
-      <Navbar/>
-      <Routes>
-        <Route path='/' element={<Products/>} />
-        <Route path='/update/:id' element={<UpdateProducts/>} />
-        <Route path='/create' element={<CreateProducts/>} />
-        <Route path='/login' element={<Login/>} />
-      </Routes>
-      <Footer/>
-    </div>
+    <UserProvider>
+      <CartProvider>
+        <div className='appContainer'>
+          <Header/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer/>} />
+            <Route path='/update/:id' element={<ItemUpdate/>} />
+            <Route path='/details/:id' element={<ItemDetails/>} />
+            <Route path='/create' element={<ItemCreate/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/register' element={<Register/>} />
+            <Route path='/reset' element={<Reset/>} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/checkout' element={<Checkout/>} />
+            <Route path='/order-history' element={<ListPurchaseContainer/>} />
+            <Route path='/contact' element={<Contact/>} />
+          </Routes>
+          <Footer/>
+        </div>
+      </CartProvider>
+    </UserProvider>
   )
 }
 

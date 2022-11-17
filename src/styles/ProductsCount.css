@@ -1,0 +1,11 @@
+.itemCounterContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.table-history-products{
+    overflow-x: auto;
+    min-height: 77vh;
+}
