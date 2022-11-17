@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCartContext } from './CartProvider'
+import '../styles/Checkout.css'
 
 
 
@@ -38,7 +39,7 @@ const Checkout = () => {
       //deleteTotalCart();
       MySwal.fire({
         title: "Created!",
-        text: "Su compra se ah realizado con exito",
+        text: "Your purchase has been made successfully. Enjoy the world cup!",
         icon: "success",
         confirmButtonText: "Ok",
       });
@@ -47,7 +48,7 @@ const Checkout = () => {
     } catch (error) {
       MySwal.fire({
         title: "Error!",
-        text: "Su compra no pudo concretarse",
+        text: "Please verify your data",
         icon: "error",
         confirmButtonText: "Ok",
       });
@@ -85,79 +86,100 @@ const Checkout = () => {
     });
   };
   return (
-      <section>
+      <section className="checkout__container">
         <Container>
         <Row>
           <center><h1>CHECKOUT</h1></center>
         </Row>
-          <Row>
+          <Row className="checkout__form">
             <Col lg="8">
-              <h6 className="mb-4 fw-bold">Informacion de pago</h6>
+              {/* <h6 className="mb-4 fw-bold">Please complete the form below</h6> */}
               <Form className="billing_form" onSubmit={addPurchase}>
+                <label>Name</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="text"
                     name="name"
-                    placeholder="Ingresa tu nombre"
+                    placeholder="Please enter your name"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>email</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="email"
                     name="email"
                     placeholder="john_doe@mail.com"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>Contact number</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="number"
                     name="phone"
-                    placeholder="Numero telefonico"
+                    placeholder="Phone"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>Home adress</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="text"
                     name="address"
-                    placeholder="Dirección"
+                    placeholder="Address"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>City</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="text"
                     name="city"
-                    placeholder="Ciudad"
+                    placeholder="City"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>Postal Code</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="text"
                     name="cp"
-                    placeholder="Codigo postal"
+                    placeholder="Code"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
 
+                <label>Country</label>
                 <FormGroup className="form_group">
                   <input
+                    className="checkout__input"
                     type="text"
                     name="country"
-                    placeholder="País"
+                    placeholder="Country"
                     onChange={handleChange}
+                    required
                   />
                 </FormGroup>
-                <Button className="buy_btn auth_btn w-100 " type="submit">
-                  Pagar
+                <Button className="buy_btn auth_btn w-30 " type="submit">
+                  To Pay
                 </Button>
               </Form>
             </Col>
@@ -165,23 +187,20 @@ const Checkout = () => {
             <Col lg="4">
               <div className="checkout_cart">
                 <h6>
-                  Cantidad de productos: <span>{cart.length}</span>
+                  Product quantity: <span>{cart.length}</span>
                 </h6>
                 <h6>
-                  Unidades totales: <span>{totalUnits()}</span>
+                  Total units: <span>{totalUnits()}</span>
                 </h6>
                 <h6>
-                  Subtotal: <span>$total</span>
+                  <span>Discounts: </span><span>$0</span>
                 </h6>
                 <h6>
-                  <span>
-                    Descuentos: <br />
-                  </span>
-                  <span>0</span>
+                  Subtotal: <span>{totalValueCart()}</span>
                 </h6>
 
                 <h4>
-                  Total de la compra: <span>{totalValueCart()}</span>
+                  Purchase: <span>{totalValueCart()}</span>
                 </h4>
               </div>
             </Col>
