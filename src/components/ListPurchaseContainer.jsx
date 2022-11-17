@@ -4,6 +4,7 @@ import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import ListPurchase from "./ListPurchase";
 import Loading from './Loading'
 
+
 const ListPurchaseContainer = () => {
   const [userPurchase, setuserPurchase] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -24,7 +25,9 @@ const ListPurchaseContainer = () => {
   return (
     <>
       {loading && <Loading />}
-      <ListPurchase userPurchase={userPurchase} />;
+      <div className="body-t">
+         <ListPurchase  userPurchase={userPurchase} />;
+      </div>
     </>
   )
 };
