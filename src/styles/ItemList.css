@@ -37,3 +37,14 @@
     height: 80px;
     width: auto;
 }
+@media (max-width: 540px) {
+    .titleList {
+        font-size: xx-large;
+    }
+}
+@media (max-width: 390px) {
+    .titleList {
+        font-size: x-large;
+        padding: 20px;
+    }
+}

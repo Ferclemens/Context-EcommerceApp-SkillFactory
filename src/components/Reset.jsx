@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-//import '../styles/Reset.css'
+import '../styles/Reset.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -49,11 +49,11 @@ const Reset = () => {
   return (
     <>
     {isLoading && <Loading />}     
-    <section className='login__container'>
-        <div className='login__checkin'>
-          <p className='login__form-title'>Reset Password</p>
-          <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
+    <section className='reset__container'>
+          <p className='reset__form-title'>Reset Password</p>
+          <form className='reset__form' onSubmit={handleSubmit(onSubmit)}>
             <input
+              className='input__form'
               type="text"
               placeholder='user@gmail.com'
               autoComplete="off"
@@ -68,14 +68,12 @@ const Reset = () => {
                 }
             })}
             />
-            {errors.email && <span className="login__form-input-error">{errors.email.message}</span>}
+            {errors.email && <span className="alert__mesaje">{errors.email.message}</span>}
 
           <button className='login__user-btn'>Reset Password</button>
 
-          </form>
           <p className='login__register-text'>Don't have an account? <span><Link to='/register' className='link'>Register</Link></span></p>
-        </div>
-
+          </form>
     </section>
     </>
   )

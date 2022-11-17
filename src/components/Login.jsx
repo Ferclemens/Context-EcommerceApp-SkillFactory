@@ -57,6 +57,7 @@ const Login = () => {
     <>
     {isLoading && <Loading />}     
     <section className="login__container">
+      <div className="login__container__child">
         <form className="login__form" onSubmit={handleSubmit(onSubmit)}>
           <p className="login__form-title">Ingresar</p>
           <input
@@ -76,7 +77,7 @@ const Login = () => {
             })}
           />
           {errors.email && (
-            <span className="login__form-input-error">
+            <span className="alert__mesaje">
               {errors.email.message}
             </span>
           )}
@@ -99,7 +100,7 @@ const Login = () => {
             })}
           />
           {errors.password && (
-            <span className="login__form-input-error">
+            <span className="alert__mesaje">
               {errors.password.message}
             </span>
           )}
@@ -126,6 +127,7 @@ const Login = () => {
             </span>
           </p>
         </form>
+      </div>
     </section>
     </>
   );

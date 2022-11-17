@@ -12,60 +12,33 @@
     --Tertiary: #e16162;
     --FontFamily: 'Josefin Sans', sans-serif;
 }
-.login__container {
+.reset__container {
     background: rgb(131,24,24);
     background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
     font-family: var(--FontFamily);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login__form {
-    display: flex;
     flex-direction: column;
-    gap: 25px;
-    width: 400px;
-    margin-top: 50px;
-    background-color: var(--Secondary);
-    border-radius: 3px;
-    padding: 20px 40px;
-}
-.login__form-title {
-    font-size: larger;
 }
 .input__form {
     border: none;
     outline: none;
 }
-.login__user-btn {
-    border: none;
-    background-color: var(--Button);
-    color: var(--text);
+.reset__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: var(--Secondary);
+    border-radius: 3px;
+    padding: 20px 40px 5px 40px;
 }
-.login__user-btn:hover {
-    color: var(--Tertiary);
-    background-color: var(--ButtonDarkness);
-}
-.link {
-    text-decoration: none;
-    color: var(--text);
-}
-.link:hover {
-    color: var(--Tertiary);
+.reset__form-title {
+    font-size: larger;
 }
 .alert__mesaje {
     color: var(--Tertiary);
-}
-
-@media (max-width: 450px) {
-    .login__form {
-        width: 300px;
-    }
-}
-@media (max-width: 335px) {
-    .login__form {
-        width: 250px;
-    }
 }

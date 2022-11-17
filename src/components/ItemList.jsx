@@ -10,9 +10,7 @@ function ItemList({data, getProducts}) {
     <div className='itemListContainer'>
         <Slider />
         <div className='TitleContainer'>
-            <img  className='arrow' src='https://cdn-icons-png.flaticon.com/512/5548/5548091.png'/>
             <h1 className='titleList'>Catálogo de camisetas</h1>
-            <img className='arrow' src='https://cdn-icons-png.flaticon.com/512/5548/5548091.png'/>
         </div>
         <div className='cardList'>
             {data.map((product) => {

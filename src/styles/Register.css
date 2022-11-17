@@ -15,8 +15,10 @@
 .register__container {
     background: rgb(131,24,24);
     background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
-    height: 100vh;
-    font-family: var(--FontFamily)
+    font-family: var(--FontFamily);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .register__form {
@@ -26,7 +28,8 @@
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 90px;
+    margin-bottom: 20px;
     background-color: var(--Secondary);
     border-radius: 3px;
     padding: 20px 40px;

@@ -84,7 +84,7 @@ const Register = () => {
                 },
             })}
             />
-            {errors.name && <span className="login__form-input-error">{errors.name.message}</span>}
+            {errors.name && <span className="alert__mesaje">{errors.name.message}</span>}
 
             <label className='title__input'>Email</label>
             <input
@@ -103,7 +103,7 @@ const Register = () => {
                 }
             })}
             />
-            {errors.email && <span className="login__form-input-error">{errors.email.message}</span>}
+            {errors.email && <span className="alert__mesaje">{errors.email.message}</span>}
 
             <label className='title__input'>Password</label>
             <input
@@ -122,7 +122,7 @@ const Register = () => {
                 }
             })}
             />
-            {errors.password && <span className="login__form-input-error">{errors.password.message}</span>}
+            {errors.password && <span className="alert__mesaje">{errors.password.message}</span>}
 
             <label className='title__input'>Confirm Password</label>
             <input
@@ -141,7 +141,7 @@ const Register = () => {
                 }
             })}
             />
-            {errors.confirmPassword && <span className="login__form-input-error">{errors.confirmPassword.message}</span>}
+            {errors.confirmPassword && <span className="alert__mesaje">{errors.confirmPassword.message}</span>}
 
             <p className='login__form-password'>Min 6 and max 15 characters, at least: one uppercase and one lowercase letter, one number and one special character</p>
 
