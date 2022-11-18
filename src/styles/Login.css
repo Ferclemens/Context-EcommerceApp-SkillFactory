@@ -57,6 +57,7 @@
 }
 .alert__mesaje {
     color: var(--Tertiary);
+    text-align: start;
 }
 
 @media (max-width: 450px) {
