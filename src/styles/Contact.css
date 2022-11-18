@@ -1,45 +1,64 @@
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --ButtonHover: #e9ad2e;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
+}
 .form { 
-    align-items: center;
     display: flex;
     flex-direction: column;
-    height: 81vh;
+    align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    font-family: var(--FontFamily);
+    background: rgb(131,24,24);
+    background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
 }
-
-.form__titulo {
-    display: contents;
-    font-size: 1.7rem;
-    font-weight: bolder;
-    width: 90vw;
+.form__title__contact {
+    background: var(--Paragraph);
+    border-radius: 3px;
+    color: var(--text);
+    font-size: 1.5rem;
+    padding: 8px 20px;
+    margin-bottom: 0;
 }
-
-.form__titulo-detalle {
-    background: rgba(33, 37, 41);
-    border: 1px solid transparent;
-    border-radius: 10px;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    width: 80vw;
-}
-
 .form__container {
     align-items: flex-start;
-    background: rgba(33, 37, 41);
-    border-radius: 15px;
+    background: var(--Paragraph);
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
-    margin: 15px;
-    padding: 10px;
-    width: 90%;
+    margin-top: 15px;
+    padding: 20px;
+    width: 60%;
 }
-
 .form__input-section {
     align-items: center;
     display: flex;
     width: 100%;
+    margin: 5px;
 }
-
+.form__input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--Main);
+}
+.form__textarea {
+    margin: 10px;
+    width: 99%;
+    outline: none;
+    border: none;
+    background-color: var(--Main);
+}
 .form__textarea-section {
     align-items: flex-start;
     display: flex;
@@ -47,87 +66,35 @@
     margin-top: 5px;
     width: 100%;
 }
-
-.form__input-name, .form__input-email {
-    background: rgb(0 0 0 / 0%);
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-    font-size: 0.9rem;
-    margin: 4px;
-    height: 1.2rem;
-    width: 100%;
-}
-
-.form__input-name::placeholder, .form__input-email::placeholder {
-    color: white;
-}
-
-.form__textarea-menssage {
-    background: rgb(0 0 0 / 0%);
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-    font-size: 1rem;
-    margin: 3px -5px;
-    margin-bottom: 10px;
-    width: inherit;
-}
-
-.form__textarea-menssage::placeholder {
-    color: white;
-    font-size: 1rem;
-}
-
 .form__input-title {
-    color: red;
-    display: flex;
+    color: var(--Text);
     font-weight: bold;
-    justify-content: center;
-    width: 80px;
     font-size: 1rem;
+    margin: 0 10px 0 3px;
 }
-
 .form__input-error {
-    color: red;
-    display: flex;
-    font-size: 0.7rem;
-    justify-content: flex-start;
-    margin-left: 5.5rem;
+    color: var(--Tertiary);
+    font-size: 1rem;
+    margin-left: 10px;
 }
-
-
-
-.form__btn {
-    align-items: center;
-    background: rgba(33, 37, 41, 0.5);
-    border: 1px solid white;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    font-weight: bolder;
-    height: 1.7rem;
-    justify-content: center;
-    margin-top: 5px;
-    transition: 0.5s;
-    width: 150px;
+.button__send {
+    width: 97.5%;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 25px;
+    margin: 10px;
+    background-color: var(--Button);
+    color: var(--text);
+    transition: 0.3s;
 }
-
-.form__btn:hover {
-    background: white;
-    color: red;
+.button__send:hover {
+    background-color: var(--ButtonHover);
+    color: var(--Tertiary);
 }
-
-@media screen and (min-width: 1024px) {
-    
-    .form__container {
-        width: 60vw;
-    }
-
-    .form__titulo-detalle {
-        padding: 15px;
-        text-align: center;
-        width: 50vw;
+@media (max-width: 590px) {
+    .form__title__contact {
+        font-size: 1.1rem;
+        font-weight: bold;
     }
 
 }
