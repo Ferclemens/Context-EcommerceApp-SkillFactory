@@ -49,19 +49,16 @@ const Contact = () => {
 
   return (
     <section className="form">
-      <div className="form__titulo">
-        <p className="form__titulo-detalle">Complete the following form.</p>
-      </div>
-
+      <p className="form__title__contact">Complete the following form.</p>
       <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
         <div className="form__input-section">
           <label>
-            <h2 className="form__input-title">Name: </h2>
+            <h2 className="form__input-title">Name:</h2>
           </label>
           <input
             name="name"
             id="name"
-            className="form__input-name"
+            className="form__input"
             type="text"
             placeholder="Max 30 letters"
             autoComplete="off"
@@ -83,12 +80,12 @@ const Contact = () => {
 
         <div className="form__input-section">
           <label>
-            <h2 className="form__input-title">Email: </h2>
+            <h2 className="form__input-title">Email:</h2>
           </label>
           <input
             name="email"
             id="inputEmail"
-            className="form__input-email"
+            className="form__input"
             type="email"
             placeholder="***@***.***"
             autoComplete="off"
@@ -112,7 +109,7 @@ const Contact = () => {
           <textarea
             name="message"
             id="formMensaggeId"
-            className="form__textarea-menssage"
+            className="form__textarea"
             rows="7"
             placeholder="Enter your message"
             {...register("message", {
@@ -124,7 +121,7 @@ const Contact = () => {
           <span className="form__input-error">{errors.message.message}</span>
         )}
 
-        <button type="submit" id="button" value="Send Email">send</button>
+        <button className="button__send" type="submit" id="button" value="Send Email">send</button>
       </form>
     </section>
   );
