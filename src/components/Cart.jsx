@@ -122,51 +122,53 @@ const Cart = () => {
 /*   const totalItemsPrice = cart.reduce((prevValue, currentValue)=> prevValue + (currentValue.count*10),0)
   console.log('total items price', totalItemsPrice); */
   return (
-    <div>  {cart.length > 0 ?
-
-    <div>
-    
-      {cart.map((item) => {
-        return (
-          <div className='cartContainer' key={item.id}>
-            <div className='imageContainer'>
-              <img className='productImg' src={item.image}></img>
-            </div>
-            <div className="detailContainer">
-              <p>ID: {item.id}</p>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-            <div className="totalContainer">
-              <p>Cantidad</p>
-              <div className="addToggleContainer">
-                <Button variant="outline-primary" onClick={() => more(item.id, item.count, item.stock)}>+</Button>
-                <p>{`${item.count} de ${item.stock}`}  </p>
-                <Button variant="outline-primary" onClick={() => less(item.id, item.count)}>-</Button>
+    <div className="cart__container">  {cart.length > 0 ?
+      <div className="products__cart__container">
+        {cart.map((item) => {
+          return (
+            <div className='item__container' key={item.id}>
+              <div className="item__details__container">
+                <div className='imageContainer'>
+                  <img className='productImg' src={item.image}></img>
+                </div>
+                <div className="title__container">
+                  <h4>{item.title}</h4>
+                  <Link className="link__details" to={`/details/${item.id}`}>Detalles</Link>
+                </div>
               </div>
-              <p>precio: ${item.price}</p>
-              <p>TOTAL: ${configResult(item.count * item.price)}</p>
-              <Button variant="danger" onClick={() => deleteOneProduct(item.id)}>Delete product</Button>
+              <div className="total__container">
+                <div className="toggle__container" >
+                  <h5>Cantidad</h5>
+                  <div className="botton__toggle__container">
+                    <Button variant="outline-primary" onClick={() => more(item.id, item.count, item.stock)}>+</Button>
+                    <p>{`${item.count} de ${item.stock}`}  </p>
+                    <Button variant="outline-primary" onClick={() => less(item.id, item.count)}>-</Button>
+                  </div>
+                </div>
+                <div className="price__container">
+                  <p>Precio: ${configResult(item.price)}</p>
+                  <p>Total: ${configResult(item.count * item.price)}</p>
+                </div>
+                <Button variant="danger" className="button__delete__container" onClick={() => deleteOneProduct(item.id)}>Delete product</Button>
+              </div>
             </div>
-          </div>
-        )
-      })}
-      <div className="totalGralContainer">
-        <Button variant="danger" onClick={deletAllList}>Delet All List</Button>
-        TOTAL ${totalPay()}
-      </div>
-      <Button variant="info">
-        <Link to={"/checkout"}>
-          Go to pay
-        </Link>
-      </Button>
-      </div>
-      : 
-   
-      <div>
-        <Row><h1>Empty cart!</h1></Row>
-        <Row className="cart-img"><img src="https://cdn-icons-png.flaticon.com/512/102/102661.png"/></Row>
-       </div>}
+          )
+        })}
+        <div className="total__gral__container">
+          <Button variant="danger" onClick={deletAllList}>Delet All List</Button>
+          <h5>Total General ${totalPay()}</h5>
+        </div>
+          <button className="button__buy" variant="info">
+            <Link className="link__details" to={"/checkout"}>
+              Go to pay
+            </Link>
+          </button>
+        </div>
+        : 
+        <div className="empty__cart">
+          <Row><h1>Empty cart!</h1></Row>
+          <Row className="cart__img"><img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"/></Row>
+        </div>}
     </div>
   )
 };

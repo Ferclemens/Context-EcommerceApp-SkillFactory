@@ -1,4 +1,4 @@
-.cart { 
+/* .cart { 
     align-items: center;
     background: rgb(26, 26, 26);
     display: flex;
@@ -88,9 +88,9 @@
     padding: 0 2px;
     width: 460px;
     text-align: initial;
-}
+} */
 
-
+/* 
 @media screen and (min-width: 1024px) {
 
     .cart__container {
@@ -98,39 +98,166 @@
         width: 90vw;
     }
 
-}
+} */
 /*-----------------------Cards Responsives-----------------------------------*/
-.cartContainer {
-    border: 1px solid black;
-    border-radius: 3px;
-    margin: 10px 0;
-    padding: 10px 15px;
+
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --ButtonHover: #e9ad2e;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
+}
+.cart__container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: var(--FontFamily);
+    background: rgb(41,21,32);
+    background: linear-gradient(38deg, rgba(41,21,32,1) 21%, rgba(169,32,76,1) 100%); 
 }
-.detailContainer {
-    flex-grow: 1;
-}
-.totalGralContainer {
-    border: 1px solid black;
+.products__cart__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 100px 15px 30px 15px;
+    background-color: var(--Secondary);
     border-radius: 3px;
+    overflow: hidden;
 }
-.addToggleContainer {
+.item__container {
+    background-color: var(--Main);
+    border-radius: 3px;
+    padding: 15px;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.item__details__container {
+    display: flex;
+    align-items: center;
+}
+.total__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 220px;
+}
+.title__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+}
+.button__delete__container {
+    width: 134px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.botton__toggle__container {
     display: flex;
     align-items: baseline;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
 }
-
-.cart-img{
-    width: 100%;
+.link__details {
+    text-decoration: none;
+    color: var(--text);
+    font-size: larger;
+}
+.link__details:hover {
+    color: var(--Tertiary);
+}
+.cart__img{
+    width: 50%;
     height: auto;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+}
+.total__gral__container {
+    background-color: var(--Main);
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+.empty__cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    font-family: var(--FontFamily);
+    color: var(--Button);
+}
+.button__buy {
+    border: none;
+    border-radius: 3px;
+    padding: 10px 0;
+    background-color: var(--Button);
+    color: var(--text);
+    transition: 0.3s;
+}
+.button__buy:hover {
+    background-color: var(--ButtonHover);
+    box-sizing: border-box;
+}
+.price__container {
+    text-align: start;
+    text-indent: 25px;
+    margin: 5px;
+}
+@media (max-width: 860px) {
+    .item__container {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .total__container {
+        flex-direction: row;
+        width: 500px;
+        justify-content: center;
+    }
+    .botton__toggle__container {
+        gap: 8px
+    }
+    .button__delete__container {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 }
 
-.cart-img img{
-    width: 40%;
-    height: 40%;
+@media (max-width: 610px) {
+    .item__container {
+        flex-direction: column;
+    }
+    .item__details__container {
+        flex-direction: column;
+    }
+    .total__container {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        width: 200px;
+    }
+    .total__gral__container {
+       flex-direction: column-reverse;
+       align-items: center;
+    }
+    .price__container {
+        text-align: center;
+        text-indent: 0;
+    }
+    .button__delete__container {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
