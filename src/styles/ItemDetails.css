@@ -9,6 +9,7 @@
     --Highlight: #f9bc60;
     --Secondary: #abd1c6;
     --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
 }
 
 .itemDetailContainer {
@@ -23,10 +24,9 @@
 .itemCard {
     padding: 10px;
     display: flex;
-    width: 600px;
+    width: 700px;
     flex-direction: column;
-    border: 2px solid var(--Tertiary);
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: var(--Main);
 }
 .detailContainer {
@@ -53,7 +53,7 @@
     justify-content: center;
     align-items: baseline;
 }
-@media (max-width: 660px) {
+@media (max-width: 720px) {
     .itemDetailContainer {
         height: auto;
         padding: 50px 0;
