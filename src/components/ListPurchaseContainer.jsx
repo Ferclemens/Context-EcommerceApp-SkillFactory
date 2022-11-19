@@ -25,9 +25,9 @@ const ListPurchaseContainer = () => {
   return (
     <>
       {loading && <Loading />}
-      <div className="body-t">
+      
          <ListPurchase  userPurchase={userPurchase} />;
-      </div>
+      
     </>
   )
 };
