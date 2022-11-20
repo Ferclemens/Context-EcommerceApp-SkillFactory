@@ -22,8 +22,9 @@ function App() {
   return (
     <UserProvider>
       <CartProvider>
+      <Header/>
         <div className='appContainer'>
-          <Header/>
+        
           <Routes>
             <Route path='/' element={<ItemListContainer/>} />
             <Route path='/update/:id' element={<ItemUpdate/>} />
@@ -37,8 +38,9 @@ function App() {
             <Route path='/order-history' element={<ListPurchaseContainer/>} />
             <Route path='/contact' element={<Contact/>} />
           </Routes>
-          <Footer/>
+      
         </div>
+        <Footer/>
       </CartProvider>
     </UserProvider>
   )

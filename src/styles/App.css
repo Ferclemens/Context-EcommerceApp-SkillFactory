@@ -5,6 +5,9 @@
   justify-content: space-between;
   min-height: 100vh;
   text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: linear-gradient(38deg, rgba(41,21,32,1) 21%, rgba(169,32,76,1) 100%);
   /* padding: 2rem; */
 }
 
@@ -63,8 +66,9 @@
 /* Table Styles */
 
 .table-wrapper{
-  margin: 10px 70px 70px;
+  margin: 40px 70px 70px;
   box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+  
 }
 
 .fl-table {
@@ -106,7 +110,7 @@
 
 /* Responsive */
 
-@media (max-width: 767px) {
+@media (max-width: 1020px) {
   .fl-table {
       display: block;
       width: 100%;
@@ -168,4 +172,6 @@
       display: block;
       text-align: center;
   }
+
+
 }
