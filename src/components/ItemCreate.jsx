@@ -47,14 +47,14 @@ function ItemCreate() {
   };
 
   return (
-    <div>
       <section className="createItem__container">
-        <div>
+        <div className="createItem__background">
           <form className="createItem__form" onSubmit={handleSubmit(onSubmit)}>
             <p className="createItem__form-title">Enter a new product</p>
 
             <label>Title</label>
             <input
+              className="create__input"
               type="text"
               placeholder="Title"
               autoComplete="off"
@@ -73,6 +73,7 @@ function ItemCreate() {
 
             <label>Description</label>
             <textarea
+              className="create__input"
               type="text"
               name="description"
               cols="30"
@@ -94,6 +95,7 @@ function ItemCreate() {
 
             <label>Stock</label>
             <input
+              className="create__input"
               type="number"
               {...register("stock", {
                 required: {
@@ -110,6 +112,7 @@ function ItemCreate() {
 
             <label>Price</label>
             <input
+              className="create__input"
               type="number"
               {...register("price", {
                 required: {
@@ -126,6 +129,7 @@ function ItemCreate() {
 
             <label>Image</label>
             <input
+              className="create__input"
               type="text"
               placeholder="Image"
               autoComplete="off"
@@ -146,7 +150,6 @@ function ItemCreate() {
           </form>
         </div>
       </section>
-    </div>
   );
 }
 

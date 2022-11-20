@@ -71,6 +71,7 @@ const Register = () => {
         {isLoading && <Loading />}   
         <section className='register__container'>
             <form className='register__form' onSubmit={handleSubmit(onSubmit)}>
+            <p className="register__form-title">Registro</p>
             <label className='title__input'>Name</label>
             <input
                 className='inputRegister'

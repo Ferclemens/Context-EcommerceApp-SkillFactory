@@ -49,8 +49,8 @@ const Contact = () => {
 
   return (
     <section className="form">
-      <p className="form__title__contact">Complete the following form.</p>
       <form className="form__container" onSubmit={handleSubmit(onSubmit)}>
+        <p className="form__title__contact">Complete the following form.</p>
         <div className="form__input-section">
           <label>
             <h2 className="form__input-title">Name:</h2>

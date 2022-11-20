@@ -33,7 +33,7 @@
     padding: 20px 40px;
 }
 .login__form-title {
-    font-size: larger;
+    font-size: 1.5rem;
 }
 .input__form {
     border: none;
@@ -57,6 +57,7 @@
 }
 .alert__mesaje {
     color: var(--Tertiary);
+    text-align: start;
 }
 
 @media (max-width: 450px) {
