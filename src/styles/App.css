@@ -5,8 +5,6 @@
   justify-content: space-between;
   min-height: 100vh;
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
   background: linear-gradient(38deg, rgba(41,21,32,1) 21%, rgba(169,32,76,1) 100%);
   /* padding: 2rem; */
 }

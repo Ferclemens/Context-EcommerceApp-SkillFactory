@@ -34,7 +34,8 @@
     border-radius: 3px;
     padding: 20px 40px;
 }
-.title__input {
+.register__form-title {
+    font-size: 1.5rem;
 }
 .login__form-title {
     font-size: larger;

@@ -1,30 +1,65 @@
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --ButtonHover: #e9ad2e;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
+}
 .createItem__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0;
+    padding: 100px 0;
+    font-family: var(--FontFamily);
+    color: var(--text);    
 }
-
+.createItem__background {
+    padding: 20px;
+    background-color: var(--Secondary);
+    border-radius: 3px;
+}
 .createItem__form {
     display: flex;
     flex-direction: column;
     width: 50vw;
     align-items: center;
 }
-
 .createItem__form-title {
     font-size: 2rem;
 }
-
+.create__input {
+    border: none;
+    outline: none;
+    background-color: var(--Main);
+    border-radius: 3px;
+}
 .createItem__form-input-error {
-    color: red;
-    font-size: 0.8rem;
+    color: var(--Tertiary);
+    font-size: 1rem;
+    text-align: start;
+    padding: 10px 0;    
 }
 
 .createItem__btn {
     margin-top: 25px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 25px;
+    background-color: var(--Button);
+    color: var(--text);
+    transition: 0.3s;
 }
-
+.createItem__btn:hover {
+    background-color: var(--ButtonHover);
+    color: var(--Tertiary);
+}
 @media screen and (min-width: 768px) {
 
     .createItem__form {

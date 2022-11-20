@@ -23,15 +23,11 @@
     background: linear-gradient(31deg, rgba(131,24,24,1) 22%, rgba(173,35,81,1) 53%, rgba(193,105,41,1) 80%); 
 }
 .form__title__contact {
-    background: var(--Paragraph);
-    border-radius: 3px;
     color: var(--text);
     font-size: 1.5rem;
-    padding: 8px 20px;
-    margin-bottom: 0;
+    text-align: center;
 }
 .form__container {
-    align-items: flex-start;
     background: var(--Paragraph);
     border-radius: 3px;
     display: flex;
@@ -76,6 +72,8 @@
     color: var(--Tertiary);
     font-size: 1rem;
     margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
 }
 .button__send {
     width: 97.5%;
