@@ -27,6 +27,8 @@
 ## Work organization: 
 ##### - Trello | https://trello.com/b/kP6QKKPE/e-commerce-app
 #
+## Deploy:
+##### - Vercel: https://ecommerce-app-skill-factory.vercel.app/
 #
 ## //-----Getting Started with Vite-----//
 
