@@ -12,7 +12,7 @@ import '../styles/Checkout.css'
 
 const Checkout = () => {
   const MySwal = withReactContent(Swal);
-  const { cart } = useCartContext()
+  const { cart, configResult } = useCartContext()
 
 
   const [user, setUser] = useState({
@@ -62,7 +62,7 @@ const Checkout = () => {
       result = result + (product.price * product.count);
     });
     return (
-      result
+      configResult(result)
     )
   }
   const totalUnits = () => {
@@ -187,7 +187,7 @@ const Checkout = () => {
             <Col lg="4">
               <div className="checkout_cart">
                 <h6>
-                  Product quantity: <span>{cart.length}</span>
+                  Product/s quantity: <span>{cart.length}</span>
                 </h6>
                 <h6>
                   Total units: <span>{totalUnits()}</span>
@@ -196,11 +196,11 @@ const Checkout = () => {
                   <span>Discounts: </span><span>$0</span>
                 </h6>
                 <h6>
-                  Subtotal: <span>{totalValueCart()}</span>
+                  Subtotal: $<span>{totalValueCart()}</span>
                 </h6>
 
                 <h4>
-                  Purchase: <span>{totalValueCart()}</span>
+                  Purchase: $<span>{totalValueCart()}</span>
                 </h4>
               </div>
             </Col>

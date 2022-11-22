@@ -9,7 +9,7 @@ import { Row } from "react-bootstrap";
 
 
 const Cart = () => {
-  const {cart, deleteCart, setCart } = useCartContext()
+  const {cart, deleteCart, setCart, configResult } = useCartContext()
   console.log('Producto desde componente Cart',cart);
  
   
@@ -20,16 +20,6 @@ const Cart = () => {
   /*   function configResult(price) {
     return Number.parseFloat(price).toFixed(2);
   } */
-
-  function configResult(price) {
-    const formatPeso = new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARG",
-      minimumFractionDigits: 0,
-    });
-    let valor = formatPeso.format(price);
-    return valor;
-  }
   
   const totalPay = () => {
     let result = 0;
