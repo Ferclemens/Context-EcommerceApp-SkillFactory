@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router';
 import { db } from '../firebase/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2'
+import '../styles/ItemUpdate.css'
 
 function ItemUpdate() {
     const [updateProduct, setUpdateProduct] = useState({
@@ -81,30 +82,30 @@ function ItemUpdate() {
   //console.log('getProductById(id)',updateProduct);
     
   return (
-    <div>
-        <div>Update Products</div>
-        <Form onSubmit={(e) => editProduct(e)}>
+    <div className='update__container'>
+        <Form className='formUpdate__container' onSubmit={(e) => editProduct(e)}>
+          <p className='update__title'>Update Products</p>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>Title</Form.Label>
-            <Form.Control type="text" name='title' value={updateProduct.title} placeholder="Enter title" onChange={(e) => handleChange(e)}/>
+            <Form.Control className='update__input' type="text" name='title' value={updateProduct.title} placeholder="Enter title" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Description</Form.Label>
-                <Form.Control type="text" name='description' value={updateProduct.description} placeholder="Enter description" onChange={(e) => handleChange(e)}/>
+                <Form.Control style={{ height: '200px' }} className='update__textarea' as='textarea' type="text" name='description' value={updateProduct.description} placeholder="Enter description" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicStock">
                 <Form.Label>Stock</Form.Label>
-                <Form.Control type="number" name='stock' value={updateProduct.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
+                <Form.Control className='update__input' type="number" name='stock' value={updateProduct.stock} placeholder="Enter stock" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicImage">
                 <Form.Label>Image</Form.Label>
-                <Form.Control type="text" name='image' value={updateProduct.image} placeholder="Enter link" onChange={(e) => handleChange(e)}/>
+                <Form.Control className='update__input' type="text" name='image' value={updateProduct.image} placeholder="Enter link" onChange={(e) => handleChange(e)}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPrice">
                 <Form.Label>Price</Form.Label>
-                <Form.Control type="number" name='price' value={updateProduct.price} placeholder="Enter new price" onChange={(e) => handleChange(e)}/>
+                <Form.Control className='update__input' type="number" name='price' value={updateProduct.price} placeholder="Enter new price" onChange={(e) => handleChange(e)}/>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button className='updateItem__btn' variant="primary" type="submit">
                 Submit
             </Button>
         </Form>

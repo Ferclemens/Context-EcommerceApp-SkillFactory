@@ -1,0 +1,59 @@
+:root {
+    --Background: #004643;
+    --Headline: #fffffe;
+    --Paragraph: #abd1c6;
+    --Button: #f9bc60;
+    --ButtonHover: #e9ad2e;
+    --text: #001e1d;
+    --Stroke: #001e1d;
+    --Main: #e8e4e6;
+    --Highlight: #f9bc60;
+    --Secondary: #abd1c6;
+    --Tertiary: #e16162;
+    --FontFamily: 'Josefin Sans', sans-serif;
+}
+.update__container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 100px auto 50px auto;
+    font-family: var(--FontFamily);
+    color: var(--text); 
+}
+.update__title {
+    font-size: 2rem;
+}
+.formUpdate__container {
+    padding: 20px;
+    background-color: var(--Secondary);
+    border-radius: 3px;
+}
+.update__textarea {
+    border-radius: 3px;
+    background-color: var(--Main);
+}
+.update__input {
+    border: none;
+    outline: none;
+    background-color: var(--Main);
+    border-radius: 3px;
+}
+.updateItem__btn {
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 5px 80px;
+    background-color: var(--Button);
+    color: var(--text);
+    transition: 0.3s;
+}
+.updateItem__btn:hover {
+    background-color: var(--ButtonHover);
+    color: var(--Tertiary);
+}
+
+@media (max-width: 520px) {
+    .update__container {
+        width: 320px;
+    }
+}
