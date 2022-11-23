@@ -48,7 +48,7 @@ function ItemDetails() {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Something went wrong!',
+            text: 'Algo salió mal!',
           })
         }
     }
@@ -75,7 +75,7 @@ function ItemDetails() {
         Swal.fire({
           position: 'top-end',
           icon: 'error',
-          title: 'Error',
+          title: 'Error, debe agregar al menos 1 producto.',
           showConfirmButton: false,
           timer: 1500
         })
@@ -83,19 +83,19 @@ function ItemDetails() {
 
     const confirmDeleteProduct = (id) => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Está seguro?',
+            text: "No podrá revertir esta acción!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Si'
           }).then((result) => {
             if (result.isConfirmed) {
               deleteProduct(id)
                 Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Eliminado!',
+                'Su producto fue eliminado correctamente.',
                 'success'
               )
             }
@@ -111,7 +111,7 @@ function ItemDetails() {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!'
+                text: 'Algo salió mal!'
               })
         }
     }
@@ -140,8 +140,8 @@ function ItemDetails() {
                 <ShowOnLogin>
                   <ShowAdmin>
                     <div className='buttonsContainer'>
-                        <Link className='buttonUpdate' to={`/update/${productDetail.id}`}><Button variant="outline-primary">Update</Button></Link>
-                        <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(productDetail.id)}>Delete</Button>
+                        <Link className='buttonUpdate' to={`/update/${productDetail.id}`}><Button variant="outline-primary">Actualizar</Button></Link>
+                        <Button  variant="outline-danger" className='buttonDelete' onClick={() => confirmDeleteProduct(productDetail.id)}>Eliminar</Button>
                     </div>
                   </ShowAdmin>
                 </ShowOnLogin>

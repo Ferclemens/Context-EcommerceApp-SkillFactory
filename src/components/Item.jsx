@@ -23,13 +23,13 @@ function Item({id, stock, title, price, image, getProducts}) {
     
     const confirmDeleteProduct = (id) => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Está seguro?',
+            text: "No pordrá revertir esta acción!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Si'
           }).then((result) => {
             if (result.isConfirmed) {
               deleteProduct(id)
@@ -43,8 +43,8 @@ function Item({id, stock, title, price, image, getProducts}) {
         try{
             await deleteDoc(productToDelete)
             Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Eliminado!',
+                'Su producto fue eliminado correctamente.',
                 'success'
               )
               navigate('/')
@@ -52,7 +52,7 @@ function Item({id, stock, title, price, image, getProducts}) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Something went wrong!'
+                text: 'Algo salió mal!'
               })
         }
     }
@@ -74,7 +74,7 @@ function Item({id, stock, title, price, image, getProducts}) {
           : Swal.fire({
             position: 'top-end',
             icon: 'error',
-            title: 'Error',
+            title: 'Error, debe agregar al menos 1 producto.',
             showConfirmButton: false,
             timer: 1500
           })
@@ -89,7 +89,7 @@ function Item({id, stock, title, price, image, getProducts}) {
             <div className='detailCardContainer'>
                 <img className='productImg' src={image}></img>
                 <p>Stock: {stock}</p>
-                <p>Price: ${price}</p>
+                <p>Precio: ${price}</p>
             </div>
             <div>
 {/*             <ShowOnLogin>
@@ -101,7 +101,7 @@ function Item({id, stock, title, price, image, getProducts}) {
                 </ShowAdmin>
             </ShowOnLogin> */}
 
-            <Link to={`/details/${id}`}><Button variant="outline-primary" className='buttonBuy'>Details</Button></Link>
+            <Link to={`/details/${id}`}><Button variant="outline-primary" className='buttonBuy'>Detalles</Button></Link>
             <ShowOnLogin>
                 <ItemCount stock={stock} action={addItem}/>
             </ShowOnLogin>

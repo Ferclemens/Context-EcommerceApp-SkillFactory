@@ -26,8 +26,8 @@ const Contact = () => {
       .then((result) => {
           //console.log(result.text);
           MySwal.fire({
-            title: "Success!",
-            text: "The message has been sent successfully",
+            title: "Enviado!",
+            text: "El mensaje se despacho correctamente.",
             icon: "success",
             showConfirmButton: false,
             timer: 1500

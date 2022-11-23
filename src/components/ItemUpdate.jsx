@@ -60,7 +60,7 @@ function ItemUpdate() {
       Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'actualizado correctamente',
         showConfirmButton: false,
         timer: 2000
       })
@@ -69,7 +69,7 @@ function ItemUpdate() {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Algo salió mal!',
       })
       console.log(error);
       navigate('/')

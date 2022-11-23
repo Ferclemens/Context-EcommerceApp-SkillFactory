@@ -31,8 +31,8 @@ const Login = () => {
     //console.log(user)
     setIsLoading(false)
     MySwal.fire({
-      title: "Welcome!",
-      text: "welcome to EcommerceApp",
+      title: "Bienvenido!",
+      text: "E-commerce App",
       icon: "success",
       showConfirmButton: false,
       timer: 1500

@@ -36,8 +36,17 @@ function CartProvider({children}) {
   const deleteCart = () => {
     setCart([])
   }
+  function configResult(price) {
+    const formatPeso = new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARG",
+      minimumFractionDigits: 0,
+    });
+    let valor = formatPeso.format(price);
+    return valor;
+  }
   return (
-    <cartContext.Provider value={{cart, addItemToCart, deleteCart, setCart}}>
+    <cartContext.Provider value={{cart, addItemToCart, deleteCart, setCart, configResult}}>
       {children}
     </cartContext.Provider>
   )

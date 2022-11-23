@@ -29,7 +29,7 @@ const Register = () => {
       if(data.password !== data.confirmPassword){
         MySwal.fire({
           title: 'Oops...',
-          text: 'Password do not match!',
+          text: 'Los passwords no coinciden',
           icon: "error",
           confirmButtonText: "Ok",
         })
@@ -41,8 +41,8 @@ const Register = () => {
           //const userFirebase = userCredential.user;
           setIsLoading(false)
           MySwal.fire({
-            title: "Success!",
-            text: "Your user was successfully registered",
+            title: "Bienvenido!",
+            text: "Su usuario se creo correctamente.",
             icon: "success",
             showConfirmButton: false,
             timer: 1500

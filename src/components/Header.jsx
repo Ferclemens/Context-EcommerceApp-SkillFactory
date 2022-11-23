@@ -64,16 +64,16 @@ export const Header = () => {
       const logoutUser = ()=>{
         signOut(auth).then(() => {
           MySwal.fire({
-            title: "Are you sure?",
-            text: "You want to log out?",
+            title: "Salir",
+            text: "Está seguro que quiere salir? :'(",
             icon: "warning",
             showCancelButton: true,
             confirmButtonText: "Confirm",
           }).then((result) => {
             if (result.isConfirmed) {
               MySwal.fire({
-                title: "Log out",
-                text: "Have an excellent day!",
+                title: "Deslogueado",
+                text: "Hasta la próxima!",
                 icon: "success",
                 confirmButtonText: "Ok",
               });
@@ -101,21 +101,21 @@ export const Header = () => {
                 <Nav className="me-auto">
                 <ShowOnLogin>
                   <ShowAdmin>
-                    <NavLink to='/create' className={({isActive})=>(isActive ? 'navbar__admin isActive':'navbar__admin noActive')}><Navbar>Create</Navbar></NavLink>
-                    <NavLink to='/order-history' className={({isActive})=>(isActive ? 'navbar__order isActive':'navbar__order noActive')}><Navbar>Orders</Navbar></NavLink>
+                    <NavLink to='/create' className={({isActive})=>(isActive ? 'navbar__admin isActive':'navbar__admin noActive')}><Navbar>Crear</Navbar></NavLink>
+                    <NavLink to='/order-history' className={({isActive})=>(isActive ? 'navbar__order isActive':'navbar__order noActive')}><Navbar>Ordenes</Navbar></NavLink>
                   </ShowAdmin>
                 </ShowOnLogin>
-                  <NavLink to='/contact' className={({isActive})=>(isActive ? 'navbar__contact isActive':'navbar__contact noActive')}><Navbar>Contact us</Navbar></NavLink>
+                  <NavLink to='/contact' className={({isActive})=>(isActive ? 'navbar__contact isActive':'navbar__contact noActive')}><Navbar>Contacto</Navbar></NavLink>
                 </Nav>
                 <Nav>
                   <ShowOnLogin>
-                    <Link to='#' className='navbar__user'><Navbar><span className='navbar__user-hi'>Hi </span>{name}</Navbar></Link>
-                    <NavLink to='/' className='navbar__login noActive' onClick={logoutUser} ><Navbar>Logout</Navbar></NavLink>
+                    <Link to='#' className='navbar__user'><Navbar><span className='navbar__user-hi'>Bienvenido </span>{name}</Navbar></Link>
+                    <NavLink to='/' className='navbar__login noActive' onClick={logoutUser} ><Navbar>Salir</Navbar></NavLink>
                     <NavLink to='/cart' className={({isActive})=>(isActive ? 'navbar__cart isActive':'navbar__cart noActive')}><Navbar><span className="material-symbols-outlined">shopping_cart</span>{cart.length}</Navbar></NavLink>
                   </ShowOnLogin>
                   <ShowOnLogout>
-                    <NavLink to='/login' className={({isActive})=>(isActive ? 'navbar__login isActive':'navbar__login noActive')}><Navbar>Login</Navbar></NavLink>
-                    <NavLink to='/register' className={({isActive})=>(isActive ? 'navbar__login isActive':'navbar__login noActive')}><Navbar>Register</Navbar></NavLink>
+                    <NavLink to='/login' className={({isActive})=>(isActive ? 'navbar__login isActive':'navbar__login noActive')}><Navbar>Ingresar</Navbar></NavLink>
+                    <NavLink to='/register' className={({isActive})=>(isActive ? 'navbar__login isActive':'navbar__login noActive')}><Navbar>Registrarse</Navbar></NavLink>
                   </ShowOnLogout>
                 </Nav>
               </Navbar.Collapse>
