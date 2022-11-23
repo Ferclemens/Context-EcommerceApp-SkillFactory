@@ -30,21 +30,21 @@ const Cart = () => {
   };
   const deleteOneProduct = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Está seguro?',
+      text: "No podra revertir la acción!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Si'
     }).then((result) => {
       if (result.isConfirmed) {
           const filterList = cart.filter((item) => item.id != id)
           //console.log('filter list', filterList);
           setCart([...filterList])
           Swal.fire(
-            'Deleted!',
-          'Your file has been deleted.',
+            'Eliminado!',
+          'Su producto se eliminó correctamente.',
           'success'
         )
         console.log('deteleOneProduct',cart);
@@ -91,19 +91,19 @@ const Cart = () => {
   }
   const deletAllList = ()=> {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Está seguro?',
+      text: "No podra revertir la acción!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Si'
     }).then((result) => {
       if (result.isConfirmed) {
           deleteCart()
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
+            'Eliminado!',
+            'Su producto se eliminó correctamente.',
             'success'
             )
           }
@@ -139,24 +139,24 @@ const Cart = () => {
                   <p>Precio: ${configResult(item.price)}</p>
                   <p>Total: ${configResult(item.count * item.price)}</p>
                 </div>
-                <Button variant="danger" className="button__delete__container" onClick={() => deleteOneProduct(item.id)}>Delete product</Button>
+                <Button variant="danger" className="button__delete__container" onClick={() => deleteOneProduct(item.id)}>Eliminar</Button>
               </div>
             </div>
           )
         })}
         <div className="total__gral__container">
-          <Button variant="danger" onClick={deletAllList}>Delet All List</Button>
+          <Button variant="danger" onClick={deletAllList}>Eliminar lista</Button>
           <h5>Total General ${totalPay()}</h5>
         </div>
           <button className="button__buy" variant="info">
             <Link className="link__details" to={"/checkout"}>
-              Go to pay
+              Ir a pagar
             </Link>
           </button>
         </div>
         : 
         <div className="empty__cart">
-          <Row><h1>Empty cart!</h1></Row>
+          <Row><h1>Carrito vacio!</h1></Row>
           <Row className="cart__img"><img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"/></Row>
         </div>}
     </div>

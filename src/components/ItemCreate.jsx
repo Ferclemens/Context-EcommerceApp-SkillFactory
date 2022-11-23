@@ -28,7 +28,7 @@ function ItemCreate() {
         MySwal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Producto cargado correctamente.",
             showConfirmButton: false,
             timer: 2000,
         });

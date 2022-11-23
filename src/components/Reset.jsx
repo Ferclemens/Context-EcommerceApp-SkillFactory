@@ -24,8 +24,8 @@ const Reset = () => {
   .then(() => {
     setIsLoading(false)
     MySwal.fire({
-      title: "Send Email!",
-      text: "Check your email!",
+      title: "Enviando Email!",
+      text: "Revise su casilla de correos",
       icon: "success",
       confirmButtonText: "Ok",
     })

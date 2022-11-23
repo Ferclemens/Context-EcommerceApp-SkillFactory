@@ -38,8 +38,8 @@ const Checkout = () => {
       await addDoc(productCollection, user);
       //deleteTotalCart();
       MySwal.fire({
-        title: "Created!",
-        text: "Your purchase has been made successfully. Enjoy the world cup!",
+        title: "Gracias!",
+        text: "Su compra se realizó correctamente!",
         icon: "success",
         confirmButtonText: "Ok",
       });
@@ -48,7 +48,7 @@ const Checkout = () => {
     } catch (error) {
       MySwal.fire({
         title: "Error!",
-        text: "Please verify your data",
+        text: "Por favor verificar los datos.",
         icon: "error",
         confirmButtonText: "Ok",
       });
@@ -95,19 +95,19 @@ const Checkout = () => {
             <Col lg="8">
               {/* <h6 className="mb-4 fw-bold">Please complete the form below</h6> */}
               <Form className="billing_form" onSubmit={addPurchase}>
-                <label>Name</label>
+                <label>Nombre</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="text"
                     name="name"
-                    placeholder="Please enter your name"
+                    placeholder="Nombre"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
 
-                <label>email</label>
+                <label>Email</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
@@ -119,67 +119,67 @@ const Checkout = () => {
                   />
                 </FormGroup>
 
-                <label>Contact number</label>
+                <label>Teléfono</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="number"
                     name="phone"
-                    placeholder="Phone"
+                    placeholder="Teléfono"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
 
-                <label>Home adress</label>
+                <label>Dirección</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="text"
                     name="address"
-                    placeholder="Address"
+                    placeholder="Dirección"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
 
-                <label>City</label>
+                <label>Ciudad</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="text"
                     name="city"
-                    placeholder="City"
+                    placeholder="Ciudad"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
 
-                <label>Postal Code</label>
+                <label>Cod. Postal</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="text"
                     name="cp"
-                    placeholder="Code"
+                    placeholder="Código Postal"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
 
-                <label>Country</label>
+                <label>País</label>
                 <FormGroup className="form_group">
                   <input
                     className="checkout__input"
                     type="text"
                     name="country"
-                    placeholder="Country"
+                    placeholder="País"
                     onChange={handleChange}
                     required
                   />
                 </FormGroup>
                 <Button className="buy_btn auth_btn w-30 " type="submit">
-                  To Pay
+                  Ir a pagar
                 </Button>
               </Form>
             </Col>
@@ -187,20 +187,20 @@ const Checkout = () => {
             <Col lg="4">
               <div className="checkout_cart">
                 <h6>
-                  Product/s quantity: <span>{cart.length}</span>
+                  Cantidad de productos: <span>{cart.length}</span>
                 </h6>
                 <h6>
-                  Total units: <span>{totalUnits()}</span>
+                  Unidades totales: <span>{totalUnits()}</span>
                 </h6>
                 <h6>
-                  <span>Discounts: </span><span>$0</span>
+                  <span>Descuentos: </span><span>$0</span>
                 </h6>
                 <h6>
                   Subtotal: $<span>{totalValueCart()}</span>
                 </h6>
 
                 <h4>
-                  Purchase: $<span>{totalValueCart()}</span>
+                  A pagar: $<span>{totalValueCart()}</span>
                 </h4>
               </div>
             </Col>

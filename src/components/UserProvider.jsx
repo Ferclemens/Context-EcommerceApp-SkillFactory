@@ -55,7 +55,7 @@ const UserProvider = (props) => {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Deslogueado correctamente',
             showConfirmButton: false,
             timer: 2000
           })
