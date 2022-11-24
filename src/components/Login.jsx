@@ -68,11 +68,11 @@ const Login = () => {
             {...register("email", {
               required: {
                 value: true,
-                message: "The email input is required",
+                message: "El campo email es requerido",
               },
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "The format is not correct",
+                message: "El formato no es correcto",
               },
             })}
           />
@@ -90,12 +90,12 @@ const Login = () => {
             {...register("password", {
               required: {
                 value: true,
-                message: "The password input is required",
+                message: "El campo password es requerido",
               },
               pattern: {
                 value:
                   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}/,
-                message: "The format is not correct",
+                message: "El formato no es correcto",
               },
             })}
           />
@@ -116,13 +116,13 @@ const Login = () => {
           <button className="login__user-btn">Login</button>
           <div></div>
           <Link to="/reset" className="link">
-            <p>Forgot Password</p>
+            <p>Olvido su password?</p>
           </Link>
           <p>
-            Don't have an account?{" "}
+            No tiene cuenta?{" "}
             <span>
               <Link to="/register" className="link">
-                Register
+                Registrarse
               </Link>
             </span>
           </p>

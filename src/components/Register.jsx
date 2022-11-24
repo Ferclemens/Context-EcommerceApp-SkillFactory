@@ -72,16 +72,16 @@ const Register = () => {
         <section className='register__container'>
             <form className='register__form' onSubmit={handleSubmit(onSubmit)}>
             <p className="register__form-title">Registro</p>
-            <label className='title__input'>Name</label>
+            <label className='title__input'>Nombre</label>
             <input
                 className='inputRegister'
                 type="text"
-                placeholder='Name'
+                placeholder='Nombre'
                 autoComplete="off"
                 {...register('name',{
                 required:{
                     value: true,
-                    message:'The name input is required'
+                    message:'El campo nombre es requerido'
                 },
             })}
             />
@@ -91,16 +91,16 @@ const Register = () => {
             <input
                 className='inputRegister'
                 type="text"
-                placeholder='user@gmail.com'
+                placeholder='user@mail.com'
                 autoComplete="off"
                 {...register('email',{
                 required:{
                     value: true,
-                    message:'The email input is required'
+                    message:'El campo email es requerido'
                 },
                 pattern:{
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "The format is not correct"
+                    message: "El formato no es correcto"
                 }
             })}
             />
@@ -109,45 +109,45 @@ const Register = () => {
             <label className='title__input'>Password</label>
             <input
                 className='inputRegister'
-                type="password"
+                type="Password"
                 placeholder='******'
                 autoComplete="off"
                 {...register('password',{
                 required:{
                     value: true,
-                    message:'The password input is required'
+                    message:'El campo password es requerido'
                 },
                 pattern:{
                     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}/,
-                    message: "The format is not correct"
+                    message: "El formato no es correcto"
                 }
             })}
             />
             {errors.password && <span className="alert__mesaje">{errors.password.message}</span>}
 
-            <label className='title__input'>Confirm Password</label>
+            <label className='title__input'>Confirmar Password</label>
             <input
                 className='inputRegister'
-                type="password"
+                type="Re ingresar password"
                 placeholder='******'
                 autoComplete="off"
                 {...register('confirmPassword',{
                 required:{
                     value: true,
-                    message:'The password input is required'
+                    message:'El campo password es requerido'
                 },
                 pattern:{
                     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}/,
-                    message: "The format is not correct"
+                    message: "El formato no es correcto"
                 }
             })}
             />
             {errors.confirmPassword && <span className="alert__mesaje">{errors.confirmPassword.message}</span>}
 
-            <p className='login__form-password'>Min 6 and max 15 characters, at least: one uppercase and one lowercase letter, one number and one special character</p>
+            <p className='login__form-password'>Mínimo 6 y máximo 15 caracteres, al menos: una letra mayúscula y una minúscula, un número y un carácter especial</p>
 
-            <button className='login__user-btn'>Register</button>
-            <p className='login__register-text'>Do you already have an account? <span><Link to='/login' className='link'>Login</Link></span></p>
+            <button className='login__user-btn'>Registrarse</button>
+            <p className='login__register-text'>Ya tienes una cuenta? <span><Link to='/login' className='link'>Ingresar</Link></span></p>
             </form>
         </section>
     </>

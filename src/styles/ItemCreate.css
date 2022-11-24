@@ -28,7 +28,6 @@
 .createItem__form {
     display: flex;
     flex-direction: column;
-    width: 50vw;
     align-items: center;
 }
 .createItem__form-title {
@@ -37,6 +36,7 @@
 .create__input {
     border: none;
     outline: none;
+    width: 65vw; 
     background-color: var(--Main);
     border-radius: 3px;
 }
@@ -60,20 +60,8 @@
     background-color: var(--ButtonHover);
     color: var(--Tertiary);
 }
-@media screen and (min-width: 768px) {
-
-    .createItem__form {
-        width: 70vw;
-        align-items: stretch;
+@media (max-width: 590px) {
+    .createItem__form-title{
+        font-size: 1.5rem;
     }
-
-}
-
-@media screen and (min-width: 1024px) {
-
-    .createItem__form {
-        width: 50vw;
-        align-items: stretch;
-    }
-
 }
