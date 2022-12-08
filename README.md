@@ -42,7 +42,7 @@ warns about it.
 #
 #### Open a terminal in the destination folder and clone the repository, using the commands:
 
-git start
+git init
 git clone https://github.com/Ferclemens/Context-EcommerceApp-SkillFactory.git
 
 #### Enter the project folder:
